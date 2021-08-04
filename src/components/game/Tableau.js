@@ -1,19 +1,12 @@
 import React from "react";
 import Pile from "./Pile";
 
-const Tableau = () => {
+const Tableau = ({ tableau }) => {
   return (
     <div className="tableau">
-      <Pile />
-      <Pile />
-      <Pile />
-      <Pile />
-      <Pile />
-      <Pile />
-      <Pile />
-      <Pile />
-      <Pile />
-      <Pile />
+      {tableau.map((pile, index) => (
+        <Pile key={index} pile={pile} />
+      ))}
     </div>
   );
 };

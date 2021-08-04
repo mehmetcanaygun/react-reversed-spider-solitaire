@@ -9,7 +9,7 @@ import {
 } from "./types";
 
 import { cardDeck, stockRule, pileRule } from "../gameFeatures";
-import { shuffleArray, splitIntoChunks } from "../utility";
+import { shuffleArray, splitIntoChunks } from "../utilities";
 
 const SolitaireState = (props) => {
   const initialState = {

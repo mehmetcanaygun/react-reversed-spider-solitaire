@@ -29,4 +29,109 @@ select,
 a {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
+
+.App {
+  padding: 40px 2%;
+}
+
+.board-top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 3vw;
+  margin-top: 40px;
+  margin-bottom: 60px;
+}
+
+.stock {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  background: none;
+  border: none;
+  width: 220px;
+  height: 140px;
+  position: relative;
+  cursor: pointer;
+}
+
+.stock-pile {
+  width: 100px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  background-color: skyblue;
+  -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  text-align: left;
+}
+
+.stock-pile.stock-pile-5 {
+  right: 0;
+  z-index: 5;
+}
+
+.stock-pile.stock-pile-4 {
+  right: 30px;
+  z-index: 4;
+}
+
+.stock-pile.stock-pile-3 {
+  right: 60px;
+  z-index: 3;
+}
+
+.stock-pile.stock-pile-2 {
+  right: 90px;
+  z-index: 2;
+}
+
+.stock-pile.stock-pile-1 {
+  right: 120px;
+  z-index: 1;
+}
+
+.tableau {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[10];
+      grid-template-columns: repeat(10, 1fr);
+  gap: 1%;
+}
+
+.pile {
+  position: relative;
+}
+
+.card {
+  border: 1px solid red;
+  border-radius: 6px;
+  -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 160px;
+  background-color: #f1f1f1;
+}
+
+.card .card-front {
+  display: none;
+}
+
+.card.card-face-up .card-back {
+  display: none;
+}
+
+.card.card-face-up .card-front {
+  display: block;
+}
 /*# sourceMappingURL=App.css.map */

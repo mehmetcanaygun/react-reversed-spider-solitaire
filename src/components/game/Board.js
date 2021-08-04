@@ -6,8 +6,14 @@ import Tableau from "./Tableau";
 
 const Board = () => {
   const solitaireContext = useContext(SolitaireContext);
-  const { cards, createCards, setStarted, createStockAndTableau } =
-    solitaireContext;
+  const {
+    cards,
+    createCards,
+    setStarted,
+    createStockAndTableau,
+    stock,
+    tableau,
+  } = solitaireContext;
 
   useEffect(() => {
     createStockAndTableau(cards);
@@ -17,7 +23,6 @@ const Board = () => {
 
   return (
     <div className="board">
-      <h1>Board</h1>
       <button
         onClick={() => {
           setStarted(false);
@@ -26,12 +31,14 @@ const Board = () => {
       >
         Quit
       </button>
+
       <div className="board-top">
-        <Stock />
+        <Stock stock={stock} />
         <Foundations />
       </div>
+
       <div className="board-bottom">
-        <Tableau />
+        <Tableau tableau={tableau} />
       </div>
     </div>
   );

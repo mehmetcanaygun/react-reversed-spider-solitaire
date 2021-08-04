@@ -1,0 +1,25 @@
+.card {
+  border: 1px solid red;
+  border-radius: 6px;
+  box-shadow: $card-shadow;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 160px;
+  background-color: #f1f1f1;
+
+  .card-front {
+    display: none;
+  }
+}
+
+.card.card-face-up {
+  .card-back {
+    display: none;
+  }
+
+  .card-front {
+    display: block;
+  }
+}

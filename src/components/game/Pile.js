@@ -1,10 +1,18 @@
 import React from "react";
 import Card from "./Card";
 
-const Pile = () => {
+const Pile = ({ pile }) => {
   return (
     <div className="pile">
-      <Card />
+      {pile.map((card, index) => (
+        <Card
+          key={index}
+          card={card}
+          faceUp={index === pile.length - 1 ? true : false}
+          top={`${index * 30}px`}
+          zIndex={index + 1}
+        />
+      ))}
     </div>
   );
 };

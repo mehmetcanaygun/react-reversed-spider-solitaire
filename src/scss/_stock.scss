@@ -1,0 +1,46 @@
+.stock {
+  display: flex;
+  justify-content: flex-start;
+  background: none;
+  border: none;
+  width: 220px;
+  height: 140px;
+  position: relative;
+  cursor: pointer;
+}
+
+.stock-pile {
+  width: 100px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  background-color: skyblue;
+  box-shadow: $card-shadow;
+  border-radius: 6px;
+  text-align: left;
+}
+
+.stock-pile.stock-pile-5 {
+  right: 0;
+  z-index: 5;
+}
+
+.stock-pile.stock-pile-4 {
+  right: 30px;
+  z-index: 4;
+}
+
+.stock-pile.stock-pile-3 {
+  right: 60px;
+  z-index: 3;
+}
+
+.stock-pile.stock-pile-2 {
+  right: 90px;
+  z-index: 2;
+}
+
+.stock-pile.stock-pile-1 {
+  right: 120px;
+  z-index: 1;
+}

@@ -1,6 +1,13 @@
 // Fonts
 @import url("https://fonts.googleapis.com/css2?family=Creepster&family=Georama&display=swap");
 
-// Files
+// Commons
 @import "./variables";
 @import "./reset";
+
+// Components
+@import "./board";
+@import "./stock";
+@import "./tableau";
+@import "./pile";
+@import "./card";
