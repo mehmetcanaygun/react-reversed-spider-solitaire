@@ -1,24 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import SolitaireState from "./context/SolitaireState";
+
+import "./css/App.css";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+    <SolitaireState>
+      <div className="App">
+        <h1>Can</h1>
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Impedit quis
+          consectetur voluptatum unde, rem minus distinctio omnis eligendi? At,
+          quis?
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      </div>
+    </SolitaireState>
   );
 }
 
