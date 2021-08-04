@@ -1,4 +1,9 @@
-import { CREATE_CARDS, SET_LOADING, SET_STARTED } from "./types";
+import {
+  CREATE_CARDS,
+  SET_LOADING,
+  SET_STARTED,
+  CREATE_STOCK_AND_TABLEAU,
+} from "./types";
 
 const reducer = (state, action) => {
   const { type, payload } = action;
@@ -19,6 +24,13 @@ const reducer = (state, action) => {
       return {
         ...state,
         isStarted: payload,
+      };
+    case CREATE_STOCK_AND_TABLEAU:
+      return {
+        ...state,
+        stock: payload.stock,
+        tableau: payload.tableau,
+        loading: false,
       };
     default:
       return state;

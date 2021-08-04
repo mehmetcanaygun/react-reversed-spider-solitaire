@@ -1,15 +1,20 @@
 import React, { useReducer } from "react";
 import SolitaireContext from "./solitaireContext";
 import SolitaireReducer from "./solitaireReducer";
-import { CREATE_CARDS, SET_LOADING, SET_STARTED } from "./types";
+import {
+  CREATE_CARDS,
+  SET_LOADING,
+  SET_STARTED,
+  CREATE_STOCK_AND_TABLEAU,
+} from "./types";
 
-import { cardDeck } from "../gameFeatures";
-import { shuffleArray } from "../utility";
+import { cardDeck, stockRule, pileRule } from "../gameFeatures";
+import { shuffleArray, splitIntoChunks } from "../utility";
 
 const SolitaireState = (props) => {
   const initialState = {
     cards: [],
-    stock: 5,
+    stock: [],
     foundations: 0,
     tableau: [],
     selected: [],
@@ -61,15 +66,36 @@ const SolitaireState = (props) => {
     });
   };
 
+  // Create stock and tableau from shuffled cards
+  const createStockAndTableau = (cards) => {
+    // Set loading
+    setLoading();
+
+    // Put the first 50 cards in stock array as chunks of 10
+    const stock = splitIntoChunks(cards.slice(0, 50), stockRule);
+
+    // Create tableau array with the last 54 cards
+    const tableau = splitIntoChunks(cards.slice(50, 104), pileRule);
+
+    // Dispatch stock and tableau arrays
+    dispatch({
+      type: CREATE_STOCK_AND_TABLEAU,
+      payload: { stock, tableau },
+    });
+  };
+
   return (
     <SolitaireContext.Provider
       value={{
         cards: state.cards,
         loading: state.loading,
         isStarted: state.isStarted,
+        stock: state.stock,
+        tableau: state.tableau,
         createCards,
         setLoading,
         setStarted,
+        createStockAndTableau,
       }}
     >
       {props.children}

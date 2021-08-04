@@ -17,3 +17,15 @@ export const shuffleArray = (arr) => {
 
   return arr;
 };
+
+export const splitIntoChunks = (arr, chunks) => {
+  let arrWithChunks = [];
+  let startIndex = 0;
+
+  chunks.forEach((chunkSize) => {
+    arrWithChunks.push(arr.slice(startIndex, startIndex + chunkSize));
+    startIndex += chunkSize;
+  });
+
+  return arrWithChunks;
+};

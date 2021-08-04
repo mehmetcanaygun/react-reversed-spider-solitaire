@@ -15,8 +15,14 @@ export const cardDeck = [
   "A",
 ];
 
-// Pile rules to determine how many cards each pile will have
-export const pileRule = [
+// Stock rule to determine how many cards are going to be in the stock
+export const stockRule = [10, 10, 10, 10, 10];
+
+// Pile rule to determine how many cards each pile will have
+export const pileRule = [6, 6, 6, 6, 5, 5, 5, 5, 5, 5];
+
+// Pile indexes to determine which cards will be rendered face up
+export const pileFaceUpRule = [
   [0, 5],
   [1, 5],
   [2, 5],
