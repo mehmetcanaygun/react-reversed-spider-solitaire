@@ -4,12 +4,13 @@ import Card from "./Card";
 const Pile = ({ pile }) => {
   return (
     <div className="pile">
-      {pile.map((card, index) => (
+      {pile.map(({ pileId, card, faceUp }, index) => (
         <Card
           key={index}
+          pileId={pileId}
           card={card}
-          faceUp={index === pile.length - 1 ? true : false}
-          top={`${index * 30}px`}
+          faceUp={faceUp}
+          top={`${index * 20}px`}
           zIndex={index + 1}
         />
       ))}

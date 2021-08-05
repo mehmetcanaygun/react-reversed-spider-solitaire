@@ -1,8 +1,8 @@
 // A deck of cards
 export const cardDeck = [
-  "K",
-  "Q",
-  "J",
+  "13",
+  "12",
+  "11",
   "10",
   "9",
   "8",
@@ -12,7 +12,7 @@ export const cardDeck = [
   "4",
   "3",
   "2",
-  "A",
+  "1",
 ];
 
 // Stock rule to determine how many cards are going to be in the stock

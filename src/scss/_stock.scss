@@ -4,13 +4,13 @@
   background: none;
   border: none;
   width: 220px;
-  height: 140px;
+  height: $board-top-card-height;
   position: relative;
   cursor: pointer;
 }
 
 .stock-pile {
-  width: 100px;
+  width: $board-top-card-width;
   height: 100%;
   position: absolute;
   top: 0;

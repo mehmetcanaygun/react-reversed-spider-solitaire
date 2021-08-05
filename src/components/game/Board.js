@@ -23,15 +23,6 @@ const Board = () => {
 
   return (
     <div className="board">
-      <button
-        onClick={() => {
-          setStarted(false);
-          createCards();
-        }}
-      >
-        Quit
-      </button>
-
       <div className="board-top">
         <Stock stock={stock} />
         <Foundations />

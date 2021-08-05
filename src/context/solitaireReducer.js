@@ -3,6 +3,8 @@ import {
   SET_LOADING,
   SET_STARTED,
   CREATE_STOCK_AND_TABLEAU,
+  SET_SELECTED,
+  CLEAR_SELECTED,
 } from "./types";
 
 const reducer = (state, action) => {
@@ -31,6 +33,16 @@ const reducer = (state, action) => {
         stock: payload.stock,
         tableau: payload.tableau,
         loading: false,
+      };
+    case SET_SELECTED:
+      return {
+        ...state,
+        selected: [...state.selected, payload],
+      };
+    case CLEAR_SELECTED:
+      return {
+        ...state,
+        selected: [],
       };
     default:
       return state;

@@ -6,10 +6,17 @@ import {
   SET_LOADING,
   SET_STARTED,
   CREATE_STOCK_AND_TABLEAU,
+  SET_SELECTED,
+  CLEAR_SELECTED,
 } from "./types";
 
 import { cardDeck, stockRule, pileRule } from "../gameFeatures";
-import { shuffleArray, splitIntoChunks } from "../utilities";
+import {
+  shuffleArray,
+  splitIntoChunks,
+  mergeChunks,
+  refactorTableau,
+} from "../helpers";
 
 const SolitaireState = (props) => {
   const initialState = {
@@ -30,19 +37,10 @@ const SolitaireState = (props) => {
     // Set loading
     setLoading();
 
-    // Initial empty cards array
-    let cards = [];
-
-    // Add cardDeck array 8 times
-    for (let i = 0; i <= 7; i++) {
-      cards.push(cardDeck);
-    }
-
-    // Merge 8 decks into one big array
-    cards = [].concat.apply([], cards);
-
-    // Shuffle cards array
-    cards = shuffleArray(cards);
+    // Firstly, create an array of 8 cardDeck arrays
+    // Then, merge cardDeck arrays into one big array of 104 cards
+    // Lastly, shuffle them like there's no tomorrow
+    const cards = shuffleArray(mergeChunks(Array(8).fill(cardDeck)));
 
     // Dispatch shuffled final array of cards
     dispatch({
@@ -74,8 +72,11 @@ const SolitaireState = (props) => {
     // Put the first 50 cards in stock array as chunks of 10
     const stock = splitIntoChunks(cards.slice(0, 50), stockRule);
 
-    // Create tableau array with the last 54 cards
-    const tableau = splitIntoChunks(cards.slice(50, 104), pileRule);
+    // Put the last 54 cards in an array as chunks of whatever pileRule says
+    // Then, refactor the array so that it can tell pile info and faceUp info
+    const tableau = refactorTableau(
+      splitIntoChunks(cards.slice(50, 104), pileRule)
+    );
 
     // Dispatch stock and tableau arrays
     dispatch({
@@ -84,18 +85,46 @@ const SolitaireState = (props) => {
     });
   };
 
+  // Set selected array to determine which card or cards will be going under which card
+  const moveCards = (selected, card) => {
+    console.log(selected, card);
+    if (selected.length < 2) {
+      if (card.faceUp) {
+        // Put the card into selected array
+        dispatch({
+          type: SET_SELECTED,
+          payload: card,
+        });
+      }
+    } else {
+      // Check if cards can be moved
+      // If not, clear the selected array
+      if (selected[0].card === selected[1].card - 1) {
+        console.log("move the card");
+      } else {
+        dispatch({
+          type: CLEAR_SELECTED,
+          payload: card,
+        });
+      }
+    }
+  };
+
   return (
     <SolitaireContext.Provider
       value={{
         cards: state.cards,
+        foundations: state.foundations,
         loading: state.loading,
         isStarted: state.isStarted,
         stock: state.stock,
         tableau: state.tableau,
+        selected: state.selected,
         createCards,
         setLoading,
         setStarted,
         createStockAndTableau,
+        moveCards,
       }}
     >
       {props.children}
