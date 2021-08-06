@@ -57,12 +57,14 @@ const reducer = (state, action) => {
       const toPile = state.tableau[`pile${toPileId}`];
 
       // Create updated piles
-      // Remove cards from their old pile & turn the last card on this pile
+      // Remove cards from their old pile & turn the last card on this pile only if there are more than 1 cards left
       const updatedFromPile = fromPile.filter(
         (card) => selected.includes(card) === false
       );
 
-      updatedFromPile[updatedFromPile.length - 1].faceUp = true;
+      if (updatedFromPile.length > 0) {
+        updatedFromPile[updatedFromPile.length - 1].faceUp = true;
+      }
 
       // Add cards to their new pile
       const updatedToPile = [...toPile];
