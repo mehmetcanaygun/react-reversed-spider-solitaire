@@ -8,6 +8,7 @@ import {
   CREATE_STOCK_AND_TABLEAU,
   SET_SELECTED,
   CLEAR_SELECTED,
+  MOVE_CARDS,
 } from "./types";
 
 import { cardDeck, stockRule, pileRule } from "../gameFeatures";
@@ -23,7 +24,7 @@ const SolitaireState = (props) => {
     cards: [],
     stock: [],
     foundations: 0,
-    tableau: [],
+    tableau: null,
     selected: [],
     loading: false,
     isFinished: false,
@@ -86,28 +87,30 @@ const SolitaireState = (props) => {
   };
 
   // Set selected array to determine which card or cards will be going under which card
+  const setSelected = (cards) => {
+    dispatch({
+      type: SET_SELECTED,
+      payload: cards,
+    });
+  };
+
+  // Clear Selected
+  const clearSelected = () => {
+    dispatch({
+      type: CLEAR_SELECTED,
+    });
+  };
+
+  // Move Cards
   const moveCards = (selected, card) => {
-    console.log(selected, card);
-    if (selected.length < 2) {
-      if (card.faceUp) {
-        // Put the card into selected array
-        dispatch({
-          type: SET_SELECTED,
-          payload: card,
-        });
-      }
-    } else {
-      // Check if cards can be moved
-      // If not, clear the selected array
-      if (selected[0].card === selected[1].card - 1) {
-        console.log("move the card");
-      } else {
-        dispatch({
-          type: CLEAR_SELECTED,
-          payload: card,
-        });
-      }
-    }
+    /* console.log("MOVE CARDS");
+    console.log("Selected Card(s): ", selected);
+    console.log("Destination card: ", card); */
+
+    dispatch({
+      type: MOVE_CARDS,
+      payload: { selected, card },
+    });
   };
 
   return (
@@ -124,6 +127,8 @@ const SolitaireState = (props) => {
         setLoading,
         setStarted,
         createStockAndTableau,
+        setSelected,
+        clearSelected,
         moveCards,
       }}
     >

@@ -1,19 +1,18 @@
-import React, { useContext } from "react";
-import SolitaireContext from "../../context/solitaireContext";
+import React from "react";
 import { formatCardText } from "../../helpers";
 
-const Card = ({ pileId, card, faceUp, top, zIndex }) => {
-  const solitaireContext = useContext(SolitaireContext);
-  const { selected, moveCards } = solitaireContext;
-
+const Card = ({ card, cardIndex, pickCards, style }) => {
   return (
     <div
-      className={`card card-face-${faceUp ? "up" : "down"}`}
-      style={{ top, zIndex }}
-      onClick={() => moveCards(selected, { pileId, card, faceUp })}
+      data-card-text={card.cardText}
+      className={`card card-face-${card.faceUp ? "up" : "down"}`}
+      style={style}
+      onClick={() => {
+        pickCards(card, cardIndex);
+      }}
     >
       <div className="card-back"></div>
-      <div className="card-front">{formatCardText(card)}</div>
+      <div className="card-front">{formatCardText(card.cardText)}</div>
     </div>
   );
 };

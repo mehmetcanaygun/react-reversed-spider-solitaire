@@ -6,14 +6,7 @@ import Tableau from "./Tableau";
 
 const Board = () => {
   const solitaireContext = useContext(SolitaireContext);
-  const {
-    cards,
-    createCards,
-    setStarted,
-    createStockAndTableau,
-    stock,
-    tableau,
-  } = solitaireContext;
+  const { cards, createStockAndTableau, stock, tableau } = solitaireContext;
 
   useEffect(() => {
     createStockAndTableau(cards);

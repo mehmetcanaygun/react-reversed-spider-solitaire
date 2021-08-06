@@ -35,17 +35,21 @@ export const splitIntoChunks = (arr, chunks) => {
 // Merge Chunks - Takes an array with chunks and returns a merged array
 export const mergeChunks = (arr) => [].concat.apply([], arr);
 
-// Refactor Tableau - Takes tableau array that only consists of card numbers, returns it by adding pileId and faceUp info to it
+// Refactor Tableau - Takes tableau array that only consists of card numbers, returns a tableau object by adding pileId and faceUp info to each card
 export const refactorTableau = (arr) => {
-  return arr.map((pile, pIndex) => {
-    return pile.map((card, cIndex) => {
+  const tableauObj = {};
+
+  arr.map((pile, pIndex) => {
+    return (tableauObj[`pile${pIndex}`] = pile.map((card, cIndex) => {
       return {
         pileId: pIndex,
-        card: card,
+        cardText: card,
         faceUp: cIndex === pile.length - 1 ? true : false,
       };
-    });
+    }));
   });
+
+  return tableauObj;
 };
 
 // Format Card Text - Takes card text (card number) and returns formatted card text (card symbol) if it equals to either one of '13', '12', '11' or '1'
@@ -62,4 +66,17 @@ export const formatCardText = (card) => {
     default:
       return card;
   }
+};
+
+// Is Pickable - Check if the given array items decreases by one, in other terms check if the given array is suitable to be picked
+export const isPickable = (arr) => {
+  let val = +arr[0].cardText;
+  let returnValue = true;
+
+  arr.forEach((card) => {
+    returnValue = +card.cardText !== val ? false : true;
+    val--;
+  });
+
+  return returnValue;
 };
