@@ -6,6 +6,7 @@ import {
   SET_SELECTED,
   CLEAR_SELECTED,
   MOVE_CARDS,
+  ADD_CARDS,
 } from "./types";
 
 const reducer = (state, action) => {
@@ -82,6 +83,20 @@ const reducer = (state, action) => {
         ...state,
         tableau: updatedTab,
         selected: [],
+      };
+    case ADD_CARDS:
+      const tempTab = { ...state.tableau };
+
+      for (let i = 0; i < payload.length; i++) {
+        tempTab[`pile${i}`] = [...tempTab[`pile${i}`], payload[i]];
+      }
+
+      return {
+        ...state,
+        tableau: tempTab,
+        stock: state.stock.filter(
+          (stockPile, index) => index !== state.stock.length - 1
+        ),
       };
     default:
       return state;

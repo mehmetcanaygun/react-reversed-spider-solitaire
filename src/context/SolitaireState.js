@@ -9,6 +9,7 @@ import {
   SET_SELECTED,
   CLEAR_SELECTED,
   MOVE_CARDS,
+  ADD_CARDS,
 } from "./types";
 
 import { cardDeck, stockRule, pileRule } from "../gameFeatures";
@@ -16,6 +17,7 @@ import {
   shuffleArray,
   splitIntoChunks,
   mergeChunks,
+  refactorStock,
   refactorTableau,
 } from "../helpers";
 
@@ -71,7 +73,8 @@ const SolitaireState = (props) => {
     setLoading();
 
     // Put the first 50 cards in stock array as chunks of 10
-    const stock = splitIntoChunks(cards.slice(0, 50), stockRule);
+    // Then, refactor the array so that it can tell pile info and faceUp info
+    const stock = refactorStock(splitIntoChunks(cards.slice(0, 50), stockRule));
 
     // Put the last 54 cards in an array as chunks of whatever pileRule says
     // Then, refactor the array so that it can tell pile info and faceUp info
@@ -113,6 +116,14 @@ const SolitaireState = (props) => {
     });
   };
 
+  // Add Cards - Add a card to a each pile (10 in total)
+  const addCards = (cards) => {
+    dispatch({
+      type: ADD_CARDS,
+      payload: cards,
+    });
+  };
+
   return (
     <SolitaireContext.Provider
       value={{
@@ -130,6 +141,7 @@ const SolitaireState = (props) => {
         setSelected,
         clearSelected,
         moveCards,
+        addCards,
       }}
     >
       {props.children}

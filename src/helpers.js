@@ -35,6 +35,19 @@ export const splitIntoChunks = (arr, chunks) => {
 // Merge Chunks - Takes an array with chunks and returns a merged array
 export const mergeChunks = (arr) => [].concat.apply([], arr);
 
+// Refactor Stock - Takes stock array that only consists of card numbers, returns an array by adding pileId and faceUp info to each card
+export const refactorStock = (arr) => {
+  return arr.map((stockPile) => {
+    return stockPile.map((card, index) => {
+      return {
+        pileId: index,
+        cardText: card,
+        faceUp: true,
+      };
+    });
+  });
+};
+
 // Refactor Tableau - Takes tableau array that only consists of card numbers, returns a tableau object by adding pileId and faceUp info to each card
 export const refactorTableau = (arr) => {
   const tableauObj = {};
