@@ -33,9 +33,12 @@ const Pile = ({ pile, pileIndex }) => {
     }
   };
 
-  // Move To Empty Pile -
+  // Move To Empty Pile - Firstly, check if cards to be picked were selected. If so, move cards to the empty pile
+  // Provide an object with the correct pile id so that moveCards function can work properly
   const moveToEmptyPile = (index) => {
-    console.log("move to empty pile " + index);
+    if (selected.length === 1) {
+      moveCards(selected[0], { pileId: index });
+    }
   };
 
   return (
