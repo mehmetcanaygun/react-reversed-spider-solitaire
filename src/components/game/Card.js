@@ -1,5 +1,5 @@
 import React from "react";
-import { formatCardText } from "../../helpers";
+import { formatCardText } from "../../utils/helpers";
 
 const Card = ({ card, cardIndex, pickCards, style }) => {
   return (

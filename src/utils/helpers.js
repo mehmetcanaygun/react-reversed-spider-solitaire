@@ -81,14 +81,14 @@ export const formatCardText = (card) => {
   }
 };
 
-// Is Pickable - Check if the given array items decreases by one, in other terms check if the given array is suitable to be picked
-export const isPickable = (arr) => {
+// Is Lined Up - Check if the given array items decreases by one
+export const isLinedUp = (arr) => {
   let val = +arr[0].cardText;
   let returnValue = true;
 
   arr.forEach((card) => {
     returnValue = +card.cardText !== val ? false : true;
-    val--;
+    val++;
   });
 
   return returnValue;

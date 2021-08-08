@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import SolitaireContext from "../../context/solitaireContext";
 import Card from "./Card";
-import { isPickable } from "../../helpers";
+import { isLinedUp } from "../../utils/helpers";
 
 const Pile = ({ pile, pileIndex }) => {
   const solitaireContext = useContext(SolitaireContext);
@@ -18,13 +18,13 @@ const Pile = ({ pile, pileIndex }) => {
         const toBePickedCards = pile.slice(cardIndex, pile.length);
 
         // Use helper function to make sure all cards are lined up correctly
-        if (isPickable(toBePickedCards)) {
+        if (isLinedUp(toBePickedCards)) {
           setSelected(toBePickedCards);
         }
       } else if (selected.length === 1 && cardIndex === pile.length - 1) {
         // Make sure the second selection is suitable to have first selection under it
         // Else, clear all selections
-        if (+selected[0][0].cardText === +card.cardText - 1) {
+        if (+selected[0][0].cardText === +card.cardText + 1) {
           moveCards(selected[0], card);
         } else {
           clearSelected();
@@ -63,3 +63,18 @@ const Pile = ({ pile, pileIndex }) => {
 };
 
 export default Pile;
+
+// Check Sequence
+/* const checkSequence = () => {
+  // Loop through piles to find a facedUp 'King' that is followed by 12 more card in correct order
+  pile &&
+    pile.forEach(({ cardText, pileId, faceUp }, index) => {
+      if (cardText === "13" && faceUp && pile[index + 12]) {
+        if (isLinedUp(pile.slice(index, index + 12))) {
+          addFoundation(pileId, index);
+        }
+      }
+    });
+};
+
+checkSequence(); */

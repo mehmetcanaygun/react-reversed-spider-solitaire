@@ -10,23 +10,25 @@ import {
   CLEAR_SELECTED,
   MOVE_CARDS,
   ADD_CARDS,
+  // INC_FOUNDATION,
 } from "./types";
 
-import { cardDeck, stockRule, pileRule } from "../gameFeatures";
+import { CARD_DECK, STOCK_RULE, PILE_RULE } from "../utils/gameFeatures";
 import {
   shuffleArray,
   splitIntoChunks,
   mergeChunks,
   refactorStock,
   refactorTableau,
-} from "../helpers";
+  // isLinedUp,
+} from "../utils/helpers";
 
 const SolitaireState = (props) => {
   const initialState = {
     cards: [],
     stock: [],
     foundations: 0,
-    tableau: null,
+    tableau: {},
     selected: [],
     loading: false,
     isFinished: false,
@@ -43,7 +45,7 @@ const SolitaireState = (props) => {
     // Firstly, create an array of 8 cardDeck arrays
     // Then, merge cardDeck arrays into one big array of 104 cards
     // Lastly, shuffle them like there's no tomorrow
-    const cards = shuffleArray(mergeChunks(Array(8).fill(cardDeck)));
+    const cards = shuffleArray(mergeChunks(Array(8).fill(CARD_DECK)));
 
     // Dispatch shuffled final array of cards
     dispatch({
@@ -74,12 +76,14 @@ const SolitaireState = (props) => {
 
     // Put the first 50 cards in stock array as chunks of 10
     // Then, refactor the array so that it can tell pile info and faceUp info
-    const stock = refactorStock(splitIntoChunks(cards.slice(0, 50), stockRule));
+    const stock = refactorStock(
+      splitIntoChunks(cards.slice(0, 50), STOCK_RULE)
+    );
 
     // Put the last 54 cards in an array as chunks of whatever pileRule says
     // Then, refactor the array so that it can tell pile info and faceUp info
     const tableau = refactorTableau(
-      splitIntoChunks(cards.slice(50, 104), pileRule)
+      splitIntoChunks(cards.slice(50, 104), PILE_RULE)
     );
 
     // Dispatch stock and tableau arrays
@@ -106,10 +110,6 @@ const SolitaireState = (props) => {
 
   // Move Cards
   const moveCards = (selected, card) => {
-    /* console.log("MOVE CARDS");
-    console.log("Selected Card(s): ", selected);
-    console.log("Destination card: ", card); */
-
     dispatch({
       type: MOVE_CARDS,
       payload: { selected, card },
@@ -123,6 +123,41 @@ const SolitaireState = (props) => {
       payload: cards,
     });
   };
+
+  // Inc Foundation - Remove lined up cards from their pile and increase foundation by 1
+  /* const incFoundation = () => {
+    dispatch({
+      type: INC_FOUNDATION,
+    });
+  }; */
+
+  /* const checkMatch = (tableau) => {
+    // Create a copy of tableau
+    const updatedTab = { ...tableau };
+
+    // Iterate piles and find sequence from K to A
+    for (const pile in tableau) {
+      const currentPile = tableau[pile];
+
+      if (
+        currentPile[currentPile.length - 1].cardText === "1" &&
+        currentPile.length >= 13
+      ) {
+        if (
+          isLinedUp(
+            currentPile.slice(currentPile.length - 13, currentPile.length - 1)
+          )
+        ) {
+          console.log("That's a check!!!");
+          incFoundation();
+        }
+      }
+    }
+
+    // Remove that part from the pile
+
+    // Dispatch updated tableau
+  }; */
 
   return (
     <SolitaireContext.Provider
@@ -142,6 +177,8 @@ const SolitaireState = (props) => {
         clearSelected,
         moveCards,
         addCards,
+        //incFoundation,
+        //checkMatch,
       }}
     >
       {props.children}

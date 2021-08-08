@@ -7,6 +7,7 @@ import {
   CLEAR_SELECTED,
   MOVE_CARDS,
   ADD_CARDS,
+  // INC_FOUNDATION,
 } from "./types";
 
 const reducer = (state, action) => {
@@ -46,7 +47,7 @@ const reducer = (state, action) => {
         ...state,
         selected: [],
       };
-    case MOVE_CARDS:
+    case MOVE_CARDS: {
       const { selected, card } = payload;
 
       // Get pile IDs
@@ -84,20 +85,28 @@ const reducer = (state, action) => {
         tableau: updatedTab,
         selected: [],
       };
-    case ADD_CARDS:
-      const tempTab = { ...state.tableau };
+    }
+    case ADD_CARDS: {
+      const updatedTab = { ...state.tableau };
 
       for (let i = 0; i < payload.length; i++) {
-        tempTab[`pile${i}`] = [...tempTab[`pile${i}`], payload[i]];
+        updatedTab[`pile${i}`] = [...updatedTab[`pile${i}`], payload[i]];
       }
 
       return {
         ...state,
-        tableau: tempTab,
+        tableau: updatedTab,
         stock: state.stock.filter(
           (stockPile, index) => index !== state.stock.length - 1
         ),
       };
+    }
+    /* case INC_FOUNDATION: {
+      return {
+        ...state,
+        foundations: state.foundations + 1,
+      };
+    } */
     default:
       return state;
   }
