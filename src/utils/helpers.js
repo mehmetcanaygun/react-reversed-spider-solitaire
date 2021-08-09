@@ -81,7 +81,7 @@ export const formatCardText = (card) => {
   }
 };
 
-// Is Lined Up - Check if the given array items decreases by one
+// Is Lined Up - Check if the given array items increases by one
 export const isLinedUp = (arr) => {
   let val = +arr[0].cardText;
   let returnValue = true;

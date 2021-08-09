@@ -5,7 +5,14 @@ import { isLinedUp } from "../../utils/helpers";
 
 const Pile = ({ pile, pileIndex }) => {
   const solitaireContext = useContext(SolitaireContext);
-  const { selected, setSelected, clearSelected, moveCards } = solitaireContext;
+  const {
+    tableau,
+    selected,
+    setSelected,
+    clearSelected,
+    moveCards,
+    checkMatch,
+  } = solitaireContext;
 
   // Pick Cards - Handle picking cards to move on the tableau
   const pickCards = (card, cardIndex) => {
@@ -26,6 +33,7 @@ const Pile = ({ pile, pileIndex }) => {
         // Else, clear all selections
         if (+selected[0][0].cardText === +card.cardText + 1) {
           moveCards(selected[0], card);
+          checkMatch(tableau);
         } else {
           clearSelected();
         }
