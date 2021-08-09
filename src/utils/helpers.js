@@ -1,19 +1,10 @@
 // Suffle Array - Takes and returns shuffled array
 export const shuffleArray = (arr) => {
-  let currentIndex = arr.length;
-  let randomIndex;
-
-  // While there remain elements to shuffle...
-  while (0 !== currentIndex) {
-    // Pick a remaining element...
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex--;
-
-    // And swap it with the current element.
-    [arr[currentIndex], arr[randomIndex]] = [
-      arr[randomIndex],
-      arr[currentIndex],
-    ];
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    const temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
   }
 
   return arr;
@@ -92,4 +83,16 @@ export const isLinedUp = (arr) => {
   });
 
   return returnValue;
+};
+
+// Is Match - Check if the given pile has a match from 'A' to 'K'
+export const isMatch = (arr) => {
+  // Iterate the pile and find sequence from A to K
+  if (arr[arr.length - 1].cardText === "13" && arr.length >= 13) {
+    if (isLinedUp(arr.slice(arr.length - 13, arr.length - 1))) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 };

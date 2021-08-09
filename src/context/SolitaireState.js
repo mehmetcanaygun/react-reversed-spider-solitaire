@@ -19,7 +19,7 @@ import {
   mergeChunks,
   refactorStock,
   refactorTableau,
-  isLinedUp,
+  isMatch,
 } from "../utils/helpers";
 
 const SolitaireState = (props) => {
@@ -30,7 +30,6 @@ const SolitaireState = (props) => {
     tableau: {},
     selected: [],
     loading: false,
-    isFinished: false,
     isStarted: false,
   };
 
@@ -137,12 +136,39 @@ const SolitaireState = (props) => {
     // Create an updated tableau and then return it
     const updatedTab = { ...state.tableau };
     updatedTab[`pile${fromPileId}`] = updatedFromPile;
-    updatedTab[`pile${toPileId}`] = updatedToPile;
 
-    dispatch({
-      type: MOVE_CARDS,
-      payload: { updatedTab, selected: [] },
-    });
+    // Check if there's a match in the pile
+    if (isMatch(updatedToPile)) {
+      // Remove matched part from the pile
+      updatedTab[`pile${toPileId}`] = updatedToPile.slice(
+        0,
+        updatedToPile.length - 13
+      );
+
+      // Turn the last card if the pile's length is more than zero
+      if (updatedTab[`pile${toPileId}`].length > 0) {
+        updatedTab[`pile${toPileId}`][
+          updatedTab[`pile${toPileId}`].length - 1
+        ].faceUp = true;
+      }
+
+      // Dispatch updated tableau, clear selected, and increase foundations by one
+      dispatch({
+        type: MOVE_CARDS,
+        payload: {
+          updatedTab,
+          selected: [],
+          foundations: state.foundations + 1,
+        },
+      });
+    } else {
+      updatedTab[`pile${toPileId}`] = updatedToPile;
+
+      dispatch({
+        type: MOVE_CARDS,
+        payload: { updatedTab, selected: [], foundations: state.foundations },
+      });
+    }
   };
 
   // Add Cards - Add a card to each pile (10 in total)
@@ -166,34 +192,6 @@ const SolitaireState = (props) => {
     });
   };
 
-  const checkMatch = (tableau) => {
-    // Create a copy of tableau
-    const updatedTab = { ...tableau };
-
-    // Iterate piles and find sequence from A to K
-    for (const pile in tableau) {
-      const currentPile = tableau[pile];
-
-      if (
-        currentPile[currentPile.length - 1].cardText === "13" &&
-        currentPile.length >= 13
-      ) {
-        if (
-          isLinedUp(
-            currentPile.slice(currentPile.length - 13, currentPile.length - 1)
-          )
-        ) {
-          console.log("That's a check!!!");
-          // incFoundation();
-        }
-      }
-    }
-
-    // Remove that part from the pile
-
-    // Dispatch updated tableau
-  };
-
   return (
     <SolitaireContext.Provider
       value={{
@@ -212,7 +210,6 @@ const SolitaireState = (props) => {
         clearSelected,
         moveCards,
         addCards,
-        checkMatch,
       }}
     >
       {props.children}

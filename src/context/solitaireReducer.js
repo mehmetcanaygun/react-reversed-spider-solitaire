@@ -51,6 +51,7 @@ const reducer = (state, action) => {
         ...state,
         tableau: payload.updatedTab,
         selected: payload.selected,
+        foundations: payload.foundations,
       };
     case ADD_CARDS:
       return {
