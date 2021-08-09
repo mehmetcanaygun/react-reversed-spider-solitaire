@@ -5,6 +5,16 @@
   font-family: $font-text;
 }
 
+body {
+  min-height: 100vh;
+  background-image: url("../assets/bg.svg");
+  background-color: $color-dark;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+}
+
 ul {
   list-style-type: none;
 }

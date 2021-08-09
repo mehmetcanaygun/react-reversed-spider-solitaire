@@ -1,7 +1,11 @@
-$color-primary: #333;
-$color-secondary: #333;
-$color-dark: #333;
-$color-light: #333;
+$color-primary: #451b75;
+$color-primary-dark: #320d3a;
+$color-secondary: #7474a0;
+$color-secondary-dark: #42425c;
+$color-tertiary: #851939;
+$color-tertiary-dark: #520f23;
+$color-dark: #161616;
+$color-light: #eeeeee;
 
 $font-title: "Creepster", cursive;
 $font-text: "Georama", sans-serif;
@@ -9,6 +13,8 @@ $font-text: "Georama", sans-serif;
 $padding-horizontal: 2%;
 $padding-vertical: 40px;
 $padding-mobile: 16px;
+
+$container-width: 1300px;
 
 $board-top-card-width: 100px;
 $board-top-card-height: 140px;

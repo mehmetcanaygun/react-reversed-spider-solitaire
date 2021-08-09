@@ -1,10 +1,40 @@
 .navbar {
-  width: 100%;
+  width: $container-width;
   height: 100px;
-  border-bottom: 1px solid #b9b9b9;
+  margin: 0 auto;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding: 0 $padding-horizontal;
   margin-bottom: 30px;
+  position: relative;
+
+  .back-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: calc(50% - 18px);
+    left: 0;
+    height: 36px;
+    border: none;
+    border-radius: 6px;
+    background: none;
+    color: $color-light;
+    cursor: pointer;
+    font-size: 16px;
+
+    img {
+      height: 50%;
+      margin-right: 10px;
+    }
+  }
+
+  .logo {
+    height: 100%;
+
+    img {
+      max-height: 100%;
+    }
+  }
 }
