@@ -9,7 +9,7 @@
 
 body {
   min-height: 100vh;
-  background-image: url("../assets/bg.svg");
+  background-image: url("../assets/bg.jpg");
   background-color: #161616;
   background-size: cover;
   background-position: bottom;
@@ -191,7 +191,7 @@ a {
   width: 100px;
   height: 100%;
   border-radius: 6px;
-  background-color: #7474a0;
+  background-color: rgba(0, 0, 0, 0.2);
   -webkit-box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.6);
           box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.6);
 }
@@ -212,8 +212,9 @@ a {
 .pile {
   position: relative;
   width: 100px;
+  height: 148px;
   border-radius: 6px;
-  background-color: #6d4242;
+  background-color: #161616;
   cursor: pointer;
 }
 
