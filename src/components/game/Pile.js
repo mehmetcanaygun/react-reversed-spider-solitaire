@@ -39,16 +39,16 @@ const Pile = ({ pile, pileIndex }) => {
     }
   };
 
-  return (
-    <div
-      className="pile"
-      style={{ height: `${(pile.length - 1) * CARD_TOP + CARD_HEIGHT}px` }}
-      onClick={() => {
-        if (pile.length === 0) moveToEmptyPile(pileIndex);
-      }}
-    >
-      {pile &&
-        pile.map((card, index) => (
+  if (pile) {
+    return (
+      <div
+        className="pile"
+        style={{ height: `${(pile.length - 1) * CARD_TOP + CARD_HEIGHT}px` }}
+        onClick={() => {
+          if (pile.length === 0) moveToEmptyPile(pileIndex);
+        }}
+      >
+        {pile.map((card, index) => (
           <Card
             key={index}
             card={card}
@@ -57,8 +57,11 @@ const Pile = ({ pile, pileIndex }) => {
             style={{ top: `${index * CARD_TOP}px`, zIndex: index + 1 }}
           />
         ))}
-    </div>
-  );
+      </div>
+    );
+  } else {
+    return null;
+  }
 };
 
 export default Pile;

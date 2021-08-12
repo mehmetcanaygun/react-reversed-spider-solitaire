@@ -1,40 +1,84 @@
 .navbar {
-  width: $container-width;
-  height: 100px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0 $padding-horizontal;
-  margin-bottom: 30px;
-  position: relative;
+  height: $navbar-height;
+  margin-bottom: 20px;
+  background-color: rgba(#000, 0.6);
+  box-shadow: 0px 2px 10px 0px rgba(#000, 0.8);
+  border-bottom: 1px solid $color-secondary;
 
-  .back-btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: calc(50% - 18px);
-    left: 0;
-    height: 36px;
-    border: none;
-    border-radius: 6px;
-    background: none;
-    color: $color-light;
-    cursor: pointer;
-    font-size: 16px;
-
-    img {
-      height: 50%;
-      margin-right: 10px;
-    }
-  }
-
-  .logo {
+  .container {
+    width: $container-width;
     height: 100%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
 
-    img {
-      max-height: 100%;
+    .btn-container {
+      display: flex;
+      align-items: center;
+
+      .back-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 36px;
+        background: none;
+        border: none;
+        color: $color-light;
+        cursor: pointer;
+        font-size: 16px;
+
+        img {
+          height: 50%;
+          margin-right: 6px;
+        }
+      }
+    }
+
+    .logo {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+
+      img {
+        max-height: 96%;
+      }
+    }
+
+    .navbar-nav {
+      ul {
+        height: 100%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+
+        li {
+          a {
+            color: $color-light;
+            position: relative;
+          }
+
+          a::before {
+            content: "";
+            position: absolute;
+            top: calc(50% - 3px);
+            left: -10px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: $color-secondary;
+            transform: scale(0);
+            transition: transform 0.3s;
+          }
+
+          a.active::before {
+            transform: scale(1);
+          }
+        }
+
+        li:last-child {
+          margin-left: 30px;
+        }
+      }
     }
   }
 }
