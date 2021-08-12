@@ -1,11 +1,34 @@
-import React from "react";
+import React, { useContext } from "react";
+import SolitaireContext from "../../context/solitaireContext";
 import { formatCardText } from "../../utils/helpers";
 
 const Card = ({ card, cardIndex, pickCards, style }) => {
+  const solitaireContext = useContext(SolitaireContext);
+  const { selected } = solitaireContext;
+
+  const createClassName = () => {
+    let classes = ["card"];
+
+    // Face up or down
+    if (card.faceUp) {
+      classes.push("face-up");
+    }
+
+    // Selected or not
+    if (selected.length > 0) {
+      selected[0].forEach((selectedCard) => {
+        if (selectedCard.cardId === card.cardId) {
+          classes.push("selected");
+        }
+      });
+    }
+
+    return classes.join(" ");
+  };
+
   return (
     <div
-      data-card-text={card.cardText}
-      className={`card card-face-${card.faceUp ? "up" : "down"}`}
+      className={createClassName()}
       style={style}
       onClick={() => {
         if (card.faceUp) {

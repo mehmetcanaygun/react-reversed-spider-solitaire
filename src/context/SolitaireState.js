@@ -14,7 +14,7 @@ import {
 
 import { CARD_DECK, STOCK_RULE, PILE_RULE } from "../utils/gameFeatures";
 import {
-  shuffleArray,
+  refactorCards,
   splitIntoChunks,
   mergeChunks,
   refactorStock,
@@ -42,8 +42,8 @@ const SolitaireState = (props) => {
 
     // Firstly, create an array of 8 cardDeck arrays
     // Then, merge cardDeck arrays into one big array of 104 cards
-    // Lastly, shuffle them like there's no tomorrow
-    const cards = shuffleArray(mergeChunks(Array(8).fill(CARD_DECK)));
+    // Lastly, refactor them so that each item can have cardId attribute
+    const cards = refactorCards(mergeChunks(Array(8).fill(CARD_DECK)));
 
     // Dispatch shuffled final array of cards
     dispatch({
@@ -129,8 +129,13 @@ const SolitaireState = (props) => {
     // Add cards to their new pile
     const updatedToPile = [...toPile];
 
-    selected.forEach(({ cardText }) => {
-      updatedToPile.push({ cardText, faceUp: true, pileId: card.pileId });
+    selected.forEach(({ cardText, cardId }) => {
+      updatedToPile.push({
+        cardText,
+        faceUp: true,
+        pileId: card.pileId,
+        cardId,
+      });
     });
 
     // Create an updated tableau and then return it

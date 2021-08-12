@@ -7,7 +7,8 @@
   top: 0;
   left: 0;
   cursor: pointer;
-  transition: box-shadow 0.2s;
+  // animation: card 0.1s ease;
+  transition: box-shadow 0.2s, transform 0.2s;
 
   .card-front,
   .card-back {
@@ -79,7 +80,7 @@
   }
 }
 
-.card.card-face-up {
+.card.face-up {
   .card-back {
     display: none;
   }
@@ -89,6 +90,21 @@
   }
 }
 
+.card.selected {
+  transform: scale(1.05);
+  box-shadow: $card-hover-shadow;
+}
+
 .card:hover {
   box-shadow: $card-hover-shadow;
+}
+
+// Animations
+@keyframes card {
+  from {
+    transform: translateY(30px);
+  }
+  to {
+    transform: translateY(0);
+  }
 }

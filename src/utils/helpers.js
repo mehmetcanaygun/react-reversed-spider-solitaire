@@ -1,3 +1,15 @@
+// Refactor Cards - Takes an array of card texts and returns shuffled 104 card objects that cardId attribute is attached to each of them
+export const refactorCards = (arr) => {
+  const refactoredCards = arr.map((card, index) => {
+    return {
+      cardText: card,
+      cardId: index,
+    };
+  });
+
+  return shuffleArray(refactoredCards);
+};
+
 // Suffle Array - Takes and returns shuffled array
 export const shuffleArray = (arr) => {
   for (let i = arr.length - 1; i > 0; i--) {
@@ -29,10 +41,11 @@ export const mergeChunks = (arr) => [].concat.apply([], arr);
 // Refactor Stock - Takes stock array that only consists of card numbers, returns an array by adding pileId and faceUp info to each card
 export const refactorStock = (arr) => {
   return arr.map((stockPile) => {
-    return stockPile.map((card, index) => {
+    return stockPile.map(({ cardText, cardId }, index) => {
       return {
         pileId: index,
-        cardText: card,
+        cardText,
+        cardId,
         faceUp: true,
       };
     });
@@ -44,13 +57,16 @@ export const refactorTableau = (arr) => {
   const tableauObj = {};
 
   arr.map((pile, pIndex) => {
-    return (tableauObj[`pile${pIndex}`] = pile.map((card, cIndex) => {
-      return {
-        pileId: pIndex,
-        cardText: card,
-        faceUp: cIndex === pile.length - 1 ? true : false,
-      };
-    }));
+    return (tableauObj[`pile${pIndex}`] = pile.map(
+      ({ cardText, cardId }, cIndex) => {
+        return {
+          pileId: pIndex,
+          cardText,
+          cardId,
+          faceUp: cIndex === pile.length - 1 ? true : false,
+        };
+      }
+    ));
   });
 
   return tableauObj;
