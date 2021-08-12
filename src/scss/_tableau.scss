@@ -1,5 +1,4 @@
 .tableau {
-  display: grid;
-  grid-template-columns: repeat(10, 1fr);
-  gap: 1%;
+  display: flex;
+  justify-content: space-between;
 }

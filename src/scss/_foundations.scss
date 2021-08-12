@@ -1,18 +1,18 @@
 .foundations {
-  height: $board-top-card-height;
+  height: $card-height;
   display: flex;
   justify-content: flex-end;
   gap: 10px;
 }
 
 .foundation-slot {
-  width: $board-top-card-width;
+  width: $card-width;
   height: 100%;
-  border-radius: 6px;
-  background-color: #c0c0c0;
+  border-radius: $card-radius;
+  background-color: $color-secondary;
   box-shadow: $card-shadow;
-}
 
-.foundation-slot.filled {
-  background-color: purple;
+  img {
+    width: 100%;
+  }
 }

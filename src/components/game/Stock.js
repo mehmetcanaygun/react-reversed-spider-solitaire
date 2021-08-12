@@ -14,7 +14,7 @@ const Stock = ({ stock }) => {
     >
       {stock.map((card, index) => (
         <div key={index} className={`stock-pile stock-pile-${index + 1}`}>
-          {index + 1}
+          <img src="/assets/card-back.svg" alt="Card Back" />
         </div>
       ))}
     </button>

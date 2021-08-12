@@ -3,21 +3,30 @@
   justify-content: flex-start;
   background: none;
   border: none;
+  border-radius: $card-radius;
   width: 220px;
-  height: $board-top-card-height;
+  height: $card-height;
   position: relative;
   cursor: pointer;
+  transition: box-shadow 0.3s;
+}
+
+.stock:hover {
+  box-shadow: $card-hover-shadow;
 }
 
 .stock-pile {
-  width: $board-top-card-width;
+  width: $card-width;
   height: 100%;
   position: absolute;
   top: 0;
-  background-color: skyblue;
   box-shadow: $card-shadow;
-  border-radius: 6px;
+  border-radius: $card-radius;
   text-align: left;
+
+  img {
+    width: 100%;
+  }
 }
 
 .stock-pile.stock-pile-5 {

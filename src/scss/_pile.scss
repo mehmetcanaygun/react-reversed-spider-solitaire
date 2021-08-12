@@ -1,7 +1,7 @@
 .pile {
   position: relative;
-  height: 160px;
-  border-radius: 6px;
+  width: $card-width;
+  border-radius: $card-radius;
   background-color: #6d4242;
   cursor: pointer;
 }

@@ -6,6 +6,7 @@ $color-tertiary: #851939;
 $color-tertiary-dark: #520f23;
 $color-dark: #161616;
 $color-light: #eeeeee;
+$color-gray: #c5c5c5;
 
 $font-title: "Creepster", cursive;
 $font-text: "Georama", sans-serif;
@@ -16,6 +17,8 @@ $padding-mobile: 16px;
 
 $container-width: 1300px;
 
-$board-top-card-width: 100px;
-$board-top-card-height: 140px;
-$card-shadow: 0px 0px 8px rgba(#000, 0.2);
+$card-width: 100px;
+$card-height: 148px;
+$card-shadow: 0px 0px 6px rgba(#000, 0.6);
+$card-hover-shadow: 0px 0px 4px 4px rgba($color-tertiary, 0.8);
+$card-radius: 6px;
