@@ -40,6 +40,22 @@ a {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #eeeeee;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #7474a0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #42425c;
+}
+
 .navbar {
   width: 1300px;
   height: 100px;
