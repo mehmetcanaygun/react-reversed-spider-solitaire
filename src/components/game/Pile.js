@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import SolitaireContext from "../../context/solitaireContext";
 import Card from "./Card";
 import { isLinedUp } from "../../utils/helpers";
+import { CARD_HEIGHT, CARD_TOP } from "../../utils/gameFeatures";
 
 const Pile = ({ pile, pileIndex }) => {
   const solitaireContext = useContext(SolitaireContext);
@@ -41,6 +42,7 @@ const Pile = ({ pile, pileIndex }) => {
   return (
     <div
       className="pile"
+      style={{ height: `${(pile.length - 1) * CARD_TOP + CARD_HEIGHT}px` }}
       onClick={() => {
         if (pile.length === 0) moveToEmptyPile(pileIndex);
       }}
@@ -52,7 +54,7 @@ const Pile = ({ pile, pileIndex }) => {
             card={card}
             cardIndex={index}
             pickCards={pickCards}
-            style={{ top: `${index * 30}px`, zIndex: index + 1 }}
+            style={{ top: `${index * CARD_TOP}px`, zIndex: index + 1 }}
           />
         ))}
     </div>

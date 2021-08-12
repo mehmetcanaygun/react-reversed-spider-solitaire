@@ -20,3 +20,9 @@ export const STOCK_RULE = [10, 10, 10, 10, 10];
 
 // Pile rule to determine how many cards each pile will have
 export const PILE_RULE = [6, 6, 6, 6, 5, 5, 5, 5, 5, 5];
+
+// Card height - Same value as in scss variables file
+export const CARD_HEIGHT = 148;
+
+// Card top - Determines how many pixels will each card have on top
+export const CARD_TOP = 24;
