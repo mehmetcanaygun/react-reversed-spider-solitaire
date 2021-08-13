@@ -75,7 +75,9 @@ a {
       grid-template-columns: repeat(3, 1fr);
 }
 
-.navbar .container .btn-container {
+.navbar .container .game-info {
+  width: 100%;
+  height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -84,7 +86,38 @@ a {
           align-items: center;
 }
 
-.navbar .container .btn-container .back-btn {
+.navbar .container .game-info .reset-btn {
+  height: 36px;
+  padding: 0 6px;
+  margin-right: 10px;
+  border-radius: 4px;
+  background-color: #7474a0;
+  border: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #eeeeee;
+  cursor: pointer;
+  -webkit-transition: background-color 0.3s;
+  transition: background-color 0.3s;
+}
+
+.navbar .container .game-info .reset-btn img {
+  height: 50%;
+  margin-right: 4px;
+}
+
+.navbar .container .game-info .reset-btn:hover {
+  background-color: #42425c;
+}
+
+.navbar .container .game-info .score,
+.navbar .container .game-info .time {
+  width: 100px;
+  height: 36px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -94,17 +127,16 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 36px;
-  background: none;
-  border: none;
+  border-radius: 4px;
+  margin-right: 10px;
+  background-color: #161616;
   color: #eeeeee;
-  cursor: pointer;
-  font-size: 16px;
 }
 
-.navbar .container .btn-container .back-btn img {
-  height: 50%;
-  margin-right: 6px;
+.navbar .container .game-info .score span,
+.navbar .container .game-info .time span {
+  color: #7474a0;
+  margin-left: 4px;
 }
 
 .navbar .container .logo {
@@ -286,8 +318,19 @@ a {
   width: 100px;
   height: 148px;
   border-radius: 6px;
-  background-color: #161616;
+  background-color: rgba(0, 0, 0, 0.2);
   cursor: pointer;
+}
+
+.pile::before {
+  content: "";
+  position: absolute;
+  top: calc(5% - 2px);
+  left: calc(5% - 2px);
+  width: 90%;
+  height: 90%;
+  border: 2px solid rgba(116, 116, 160, 0.5);
+  border-radius: 6px;
 }
 
 .card {

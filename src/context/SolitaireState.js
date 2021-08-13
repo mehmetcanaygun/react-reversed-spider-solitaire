@@ -10,6 +10,7 @@ import {
   CLEAR_SELECTED,
   MOVE_CARDS,
   ADD_CARDS,
+  RESET,
 } from "./types";
 
 import { CARD_DECK, STOCK_RULE, PILE_RULE } from "../utils/gameFeatures";
@@ -117,11 +118,12 @@ const SolitaireState = (props) => {
     const toPile = state.tableau[`pile${toPileId}`];
 
     // Create updated piles
+    // Remove cards from their old pile
     const updatedFromPile = fromPile.filter(
       (card) => selected.includes(card) === false
     );
 
-    // Remove cards from their old pile & turn the last card on this pile only if there are more than 1 cards left
+    // Turn the last card on this pile only if there are more than 1 cards left
     if (updatedFromPile.length > 0) {
       updatedFromPile[updatedFromPile.length - 1].faceUp = true;
     }
@@ -197,6 +199,13 @@ const SolitaireState = (props) => {
     });
   };
 
+  // Reset
+  const reset = () => {
+    dispatch({
+      type: RESET,
+    });
+  };
+
   return (
     <SolitaireContext.Provider
       value={{
@@ -215,6 +224,7 @@ const SolitaireState = (props) => {
         clearSelected,
         moveCards,
         addCards,
+        reset,
       }}
     >
       {props.children}

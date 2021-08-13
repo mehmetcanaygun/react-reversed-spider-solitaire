@@ -3,6 +3,17 @@
   width: $card-width;
   height: $card-height;
   border-radius: $card-radius;
-  background-color: $color-dark;
+  background-color: rgba(#000, 0.2);
   cursor: pointer;
+}
+
+.pile::before {
+  content: "";
+  position: absolute;
+  top: calc(5% - 2px);
+  left: calc(5% - 2px);
+  width: 90%;
+  height: 90%;
+  border: 2px solid rgba($color-secondary, 0.5);
+  border-radius: $card-radius;
 }

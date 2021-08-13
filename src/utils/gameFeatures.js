@@ -26,3 +26,6 @@ export const CARD_HEIGHT = 148;
 
 // Card top - Determines how many pixels will each card have on top
 export const CARD_TOP = 24;
+
+// Run score - It is the score that users get when they complete a run from A to K
+export const RUN_SCORE = 125;

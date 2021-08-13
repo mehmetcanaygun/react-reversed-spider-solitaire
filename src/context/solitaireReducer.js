@@ -7,6 +7,7 @@ import {
   CLEAR_SELECTED,
   MOVE_CARDS,
   ADD_CARDS,
+  RESET,
 } from "./types";
 
 const reducer = (state, action) => {
@@ -58,6 +59,16 @@ const reducer = (state, action) => {
         ...state,
         tableau: payload.updatedTab,
         stock: payload.updatedStock,
+      };
+    case RESET:
+      return {
+        ...state,
+        stock: [],
+        tableau: {},
+        foundations: 0,
+        selected: [],
+        loading: false,
+        isStarted: false,
       };
     default:
       return state;
