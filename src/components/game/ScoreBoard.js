@@ -6,19 +6,29 @@ import { formatTime } from "../../utils/helpers";
 
 const ScoreBoard = () => {
   const solitaireContext = useContext(SolitaireContext);
-  const { createCards, foundations, reset } = solitaireContext;
+  const { isStarted, createCards, foundations, reset } = solitaireContext;
 
   const [time, setTime] = useState(0);
+  let timeInterval;
   let initialTime = 0;
 
   useEffect(() => {
-    setInterval(() => {
-      initialTime++;
-      setTime(initialTime);
-    }, 1000);
+    // Start timer only if game is started
+    if (isStarted) {
+      timeInterval = setInterval(() => {
+        initialTime++;
+        setTime(initialTime);
+      }, 1000);
+    }
+
+    // Clear the interval when component dismounts
+    return () => {
+      clearInterval(timeInterval);
+      setTime(0);
+    };
 
     // eslint-disable-next-line
-  }, []);
+  }, [isStarted]);
 
   return (
     <div className="score-board">
