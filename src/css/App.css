@@ -75,70 +75,6 @@ a {
       grid-template-columns: repeat(3, 1fr);
 }
 
-.navbar .container .game-info {
-  width: 100%;
-  height: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.navbar .container .game-info .reset-btn {
-  height: 36px;
-  padding: 0 6px;
-  margin-right: 10px;
-  border-radius: 4px;
-  background-color: #7474a0;
-  border: none;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  color: #eeeeee;
-  cursor: pointer;
-  -webkit-transition: background-color 0.3s;
-  transition: background-color 0.3s;
-}
-
-.navbar .container .game-info .reset-btn img {
-  height: 50%;
-  margin-right: 4px;
-}
-
-.navbar .container .game-info .reset-btn:hover {
-  background-color: #42425c;
-}
-
-.navbar .container .game-info .score,
-.navbar .container .game-info .time {
-  width: 100px;
-  height: 36px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  border-radius: 4px;
-  margin-right: 10px;
-  background-color: #161616;
-  color: #eeeeee;
-}
-
-.navbar .container .game-info .score span,
-.navbar .container .game-info .time span {
-  color: #7474a0;
-  margin-left: 4px;
-}
-
 .navbar .container .logo {
   height: 100%;
   display: -webkit-box;
@@ -195,6 +131,70 @@ a {
 
 .navbar .container .navbar-nav ul li:last-child {
   margin-left: 30px;
+}
+
+.score-board {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.score-board .reset-btn {
+  height: 36px;
+  padding: 0 6px;
+  margin-right: 10px;
+  border-radius: 4px;
+  background-color: #7474a0;
+  border: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #eeeeee;
+  cursor: pointer;
+  -webkit-transition: background-color 0.3s;
+  transition: background-color 0.3s;
+}
+
+.score-board .reset-btn img {
+  height: 50%;
+  margin-right: 4px;
+}
+
+.score-board .reset-btn:hover {
+  background-color: #42425c;
+}
+
+.score-board .score,
+.score-board .time {
+  width: 100px;
+  height: 36px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 4px;
+  margin-right: 10px;
+  background-color: #161616;
+  color: #eeeeee;
+}
+
+.score-board .score span,
+.score-board .time span {
+  color: #7474a0;
+  margin-left: 4px;
 }
 
 .board {

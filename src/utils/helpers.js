@@ -112,3 +112,9 @@ export const isMatch = (arr) => {
     }
   }
 };
+
+// Format Time - Takes seconds and return it in a formatted way
+export const formatTime = (t) => {
+  if (t > 60 * 60) return ":(";
+  return new Date(t * 1000).toISOString().substr(14, 5);
+};
