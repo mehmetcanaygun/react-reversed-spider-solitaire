@@ -9,10 +9,35 @@
   width: $card-width;
   height: 100%;
   border-radius: $card-radius;
-  background-color: rgba(#000, 0.2);
-  box-shadow: $card-shadow;
+  position: relative;
 
-  img {
+  .empty-card,
+  .filled-card {
     width: 100%;
+    box-shadow: $card-shadow;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: transform 0.6s, opacity 0.3s 0.2s;
+  }
+
+  .empty-card {
+    background-color: rgba(#000, 0.2);
+  }
+
+  .filled-card {
+    opacity: 0;
+  }
+}
+
+.foundation-slot.filled {
+  .empty-card {
+    transform: rotateY(180deg);
+    opacity: 0;
+  }
+
+  .filled-card {
+    transform: rotateY(180deg);
+    opacity: 1;
   }
 }

@@ -295,13 +295,41 @@ a {
   width: 100px;
   height: 100%;
   border-radius: 6px;
-  background-color: rgba(0, 0, 0, 0.2);
-  -webkit-box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.6);
-          box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.6);
+  position: relative;
 }
 
-.foundation-slot img {
+.foundation-slot .empty-card,
+.foundation-slot .filled-card {
   width: 100%;
+  -webkit-box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.6);
+          box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.6);
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transition: opacity 0.3s 0.2s, -webkit-transform 0.6s;
+  transition: opacity 0.3s 0.2s, -webkit-transform 0.6s;
+  transition: transform 0.6s, opacity 0.3s 0.2s;
+  transition: transform 0.6s, opacity 0.3s 0.2s, -webkit-transform 0.6s;
+}
+
+.foundation-slot .empty-card {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.foundation-slot .filled-card {
+  opacity: 0;
+}
+
+.foundation-slot.filled .empty-card {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+  opacity: 0;
+}
+
+.foundation-slot.filled .filled-card {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+  opacity: 1;
 }
 
 .tableau {
