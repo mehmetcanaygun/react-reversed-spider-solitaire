@@ -118,3 +118,16 @@ export const formatTime = (t) => {
   if (t > 60 * 60) return ":(";
   return new Date(t * 1000).toISOString().substr(14, 5);
 };
+
+// Is Pile Full - Checks if there's an empty pile
+export const isPileEmpty = (arr) => {
+  let returnValue = false;
+
+  for (let pile in arr) {
+    if (arr[pile].length === 0) {
+      returnValue = true;
+    }
+  }
+
+  return returnValue;
+};
