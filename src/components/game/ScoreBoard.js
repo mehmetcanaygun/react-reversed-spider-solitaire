@@ -1,6 +1,5 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useRef, useState, useEffect } from "react";
 import SolitaireContext from "../../context/solitaireContext";
-
 import { RUN_SCORE } from "../../utils/gameFeatures";
 import { formatTime } from "../../utils/helpers";
 
@@ -8,22 +7,20 @@ const ScoreBoard = () => {
   const solitaireContext = useContext(SolitaireContext);
   const { isStarted, createCards, foundations, reset } = solitaireContext;
 
+  const timerRef = useRef(0);
   const [time, setTime] = useState(0);
-  let timeInterval;
-  let initialTime = 0;
 
   useEffect(() => {
     // Start timer only if game is started
     if (isStarted) {
-      timeInterval = setInterval(() => {
-        initialTime++;
-        setTime(initialTime);
-      }, 1000);
+      if (timerRef.current) return;
+      timerRef.current = setInterval(() => setTime((t) => t + 1), 1000);
     }
 
     // Clear the interval when component dismounts
     return () => {
-      clearInterval(timeInterval);
+      clearInterval(timerRef.current);
+      timerRef.current = 0;
       setTime(0);
     };
 
