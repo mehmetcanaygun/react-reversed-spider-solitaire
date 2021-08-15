@@ -40,14 +40,14 @@ const Card = ({ card, cardIndex, pickCards, style }) => {
       }}
     >
       <div className="card-back">
-        <img src="/assets/card-back-spider.png" alt="Card Back" />
+        <img src="/assets/spider-color-primary.png" alt="Card Back" />
       </div>
 
       <div className="card-front">
         <div className="top-left-text">{formatCardText(card.cardText)}</div>
 
         <div className="card-front-img">
-          <img src="/assets/spider-red.svg" alt="Spider" />
+          <img src="/assets/spider-color-tertiary.png" alt="Spider" />
         </div>
 
         <div className="bottom-right-text">{formatCardText(card.cardText)}</div>

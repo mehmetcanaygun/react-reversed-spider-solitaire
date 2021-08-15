@@ -9,7 +9,7 @@ const Navbar = () => {
         <ScoreBoard />
 
         <a href="/" className="logo">
-          <img src="/assets/navbar-logo.svg" alt="MCA's Spider Solitaire" />
+          <img src="/assets/navbar-logo.png" alt="MCA's Spider Solitaire" />
         </a>
 
         <nav className="navbar-nav">

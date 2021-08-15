@@ -357,6 +357,11 @@ a {
   opacity: 0;
 }
 
+.foundation-slot .foundation-back img {
+  -webkit-filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.6));
+          filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.6));
+}
+
 .foundation-slot .foundation-front::before,
 .foundation-slot .foundation-back::before {
   content: "";
@@ -427,6 +432,8 @@ a {
   top: 0;
   left: 0;
   cursor: pointer;
+  -webkit-animation: slideUp 0.3s ease;
+          animation: slideUp 0.3s ease;
   -webkit-transition: -webkit-box-shadow 0.2s, -webkit-transform 0.2s;
   transition: -webkit-box-shadow 0.2s, -webkit-transform 0.2s;
   transition: box-shadow 0.2s, transform 0.2s;
@@ -559,7 +566,7 @@ a {
           box-shadow: 0px 0px 4px 4px rgba(133, 25, 57, 0.8);
 }
 
-@-webkit-keyframes card {
+@-webkit-keyframes slideUp {
   from {
     -webkit-transform: translateY(30px);
             transform: translateY(30px);
@@ -570,7 +577,7 @@ a {
   }
 }
 
-@keyframes card {
+@keyframes slideUp {
   from {
     -webkit-transform: translateY(30px);
             transform: translateY(30px);

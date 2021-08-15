@@ -17,11 +17,14 @@ const Foundations = () => {
       fndArr.push(
         <li key={i} className={isFoundationFilled(i)}>
           <div className="foundation-front">
-            <img src="/assets/foundation-spider.png" alt="Empty Foundation" />
+            <img
+              src="/assets/spider-color-light-no-stroke.png"
+              alt="Empty Foundation"
+            />
           </div>
           <div className="foundation-back">
             <img
-              src="/assets/foundation-spider-filled.png"
+              src="/assets/spider-color-tertiary-no-stroke.png"
               alt="Filled Foundation"
             />
           </div>

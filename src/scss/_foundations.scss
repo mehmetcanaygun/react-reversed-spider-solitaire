@@ -39,6 +39,10 @@
       $color-tertiary-dark
     );
     opacity: 0;
+
+    img {
+      filter: drop-shadow(0px 4px 4px rgba(#000, 0.6));
+    }
   }
 
   .foundation-front::before,

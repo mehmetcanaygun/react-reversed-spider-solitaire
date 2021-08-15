@@ -9,7 +9,7 @@ const End = () => {
   return (
     <div className="end">
       <div className="img-container">
-        <img src="/assets/end-spider.png" alt="Spider" />
+        <img src="/assets/spider-end.png" alt="Spider" />
       </div>
 
       <p className="end-msg">Congratulations</p>

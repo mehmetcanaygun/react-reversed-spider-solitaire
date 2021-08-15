@@ -23,7 +23,7 @@ const Stock = ({ stock }) => {
     <button className="stock" onClick={handleAddingCards}>
       {stock.map((card, index) => (
         <div key={index} className={`stock-pile stock-pile-${index + 1}`}>
-          <img src="/assets/card-back-spider.png" alt="Card Back" />
+          <img src="/assets/spider-color-primary.png" alt="Card Back" />
         </div>
       ))}
     </button>
