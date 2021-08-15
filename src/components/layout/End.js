@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
 import SolitaireContext from "../../context/solitaireContext";
+import { formatTime } from "../../utils/helpers";
 
 const End = () => {
   const solitaireContext = useContext(SolitaireContext);
-  const { reset } = solitaireContext;
+  const { reset, time } = solitaireContext;
 
   return (
     <div className="end">
@@ -13,7 +14,7 @@ const End = () => {
 
       <p className="end-msg">Congratulations</p>
 
-      <p className="end-score">You've got 1000 points in 05:32</p>
+      <p className="end-score">You've got 1000 points in {formatTime(time)}</p>
 
       <button className="again-btn" onClick={reset}>
         Again

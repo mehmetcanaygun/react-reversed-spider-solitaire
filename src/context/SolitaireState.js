@@ -11,6 +11,7 @@ import {
   MOVE_CARDS,
   ADD_CARDS,
   RESET,
+  SET_TIME,
 } from "./types";
 
 import { CARD_DECK, STOCK_RULE, PILE_RULE } from "../utils/gameFeatures";
@@ -30,6 +31,7 @@ const SolitaireState = (props) => {
     foundations: 0,
     tableau: {},
     selected: [],
+    time: 0,
     loading: false,
     isStarted: false,
   };
@@ -206,6 +208,13 @@ const SolitaireState = (props) => {
     });
   };
 
+  const setTimeScore = (time) => {
+    dispatch({
+      type: SET_TIME,
+      payload: time,
+    });
+  };
+
   return (
     <SolitaireContext.Provider
       value={{
@@ -216,6 +225,7 @@ const SolitaireState = (props) => {
         stock: state.stock,
         tableau: state.tableau,
         selected: state.selected,
+        time: state.time,
         createCards,
         setLoading,
         setStarted,
@@ -225,6 +235,7 @@ const SolitaireState = (props) => {
         moveCards,
         addCards,
         reset,
+        setTimeScore,
       }}
     >
       {props.children}

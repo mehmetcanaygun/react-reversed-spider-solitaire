@@ -8,6 +8,7 @@ import {
   MOVE_CARDS,
   ADD_CARDS,
   RESET,
+  SET_TIME,
 } from "./types";
 
 const reducer = (state, action) => {
@@ -67,8 +68,14 @@ const reducer = (state, action) => {
         tableau: {},
         foundations: 0,
         selected: [],
+        time: 0,
         loading: false,
         isStarted: false,
+      };
+    case SET_TIME:
+      return {
+        ...state,
+        time: payload,
       };
     default:
       return state;
