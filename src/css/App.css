@@ -587,9 +587,16 @@ a {
 
 .card .card-front,
 .card .card-back {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   border-radius: 6px;
+  -webkit-transition: opacity 0.3s 0.2s, visibility 0.3s 0.2s, -webkit-transform 0.6s;
+  transition: opacity 0.3s 0.2s, visibility 0.3s 0.2s, -webkit-transform 0.6s;
+  transition: transform 0.6s, opacity 0.3s 0.2s, visibility 0.3s 0.2s;
+  transition: transform 0.6s, opacity 0.3s 0.2s, visibility 0.3s 0.2s, -webkit-transform 0.6s;
 }
 
 .card .card-back {
@@ -604,7 +611,10 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  position: relative;
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: rotateY(0);
+          transform: rotateY(0);
 }
 
 .card .card-back img {
@@ -623,8 +633,10 @@ a {
 }
 
 .card .card-front {
-  display: none;
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -633,6 +645,10 @@ a {
           align-items: center;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#eeeeee), to(#b1b1b1));
   background-image: linear-gradient(#eeeeee, #b1b1b1);
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
 }
 
 .card .card-front .top-left-text,
@@ -690,13 +706,17 @@ a {
 }
 
 .card.face-up .card-back {
-  display: none;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
 }
 
 .card.face-up .card-front {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: rotateY(0);
+          transform: rotateY(0);
 }
 
 .card.selected {
