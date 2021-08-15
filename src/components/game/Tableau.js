@@ -1,5 +1,6 @@
 import React from "react";
 import Pile from "./Pile";
+import PropTypes from "prop-types";
 
 const Tableau = ({ tableau }) => {
   return (
@@ -16,6 +17,10 @@ const Tableau = ({ tableau }) => {
       <Pile key="9" pile={tableau?.pile9} pileIndex={9} />
     </div>
   );
+};
+
+Tableau.propTypes = {
+  tableau: PropTypes.object.isRequired,
 };
 
 export default Tableau;

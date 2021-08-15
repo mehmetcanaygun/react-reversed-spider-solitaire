@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import SolitaireContext from "../../context/solitaireContext";
 import { formatCardText } from "../../utils/helpers";
+import PropTypes from "prop-types";
 
 const Card = ({ card, cardIndex, pickCards, style }) => {
   const solitaireContext = useContext(SolitaireContext);
@@ -52,6 +53,13 @@ const Card = ({ card, cardIndex, pickCards, style }) => {
       </div>
     </div>
   );
+};
+
+Card.propTypes = {
+  card: PropTypes.object.isRequired,
+  cardIndex: PropTypes.number.isRequired,
+  pickCards: PropTypes.func.isRequired,
+  style: PropTypes.object.isRequired,
 };
 
 export default Card;

@@ -3,8 +3,9 @@ import SolitaireContext from "../../context/solitaireContext";
 import Card from "./Card";
 import { isLinedUp } from "../../utils/helpers";
 import { CARD_HEIGHT, CARD_TOP } from "../../utils/gameFeatures";
+import PropTypes from "prop-types";
 
-const Pile = ({ pile, pileIndex }) => {
+const Pile = ({ pile = [], pileIndex }) => {
   const solitaireContext = useContext(SolitaireContext);
   const { selected, setSelected, clearSelected, moveCards } = solitaireContext;
 
@@ -62,6 +63,11 @@ const Pile = ({ pile, pileIndex }) => {
   } else {
     return null;
   }
+};
+
+Pile.propTypes = {
+  pile: PropTypes.array,
+  pileIndex: PropTypes.number.isRequired,
 };
 
 export default Pile;

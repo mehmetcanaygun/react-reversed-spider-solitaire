@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import SolitaireContext from "../../context/solitaireContext";
 import { isPileEmpty } from "../../utils/helpers";
+import PropTypes from "prop-types";
 
 const Stock = ({ stock }) => {
   const solitaireContext = useContext(SolitaireContext);
@@ -27,6 +28,10 @@ const Stock = ({ stock }) => {
       ))}
     </button>
   );
+};
+
+Stock.propTypes = {
+  stock: PropTypes.array.isRequired,
 };
 
 export default Stock;
