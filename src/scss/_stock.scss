@@ -12,17 +12,31 @@
 }
 
 .stock-pile {
-  width: $card-width;
-  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
   top: 0;
-  box-shadow: $card-shadow;
+  width: $card-width;
+  height: 100%;
+  background-image: linear-gradient($color-dark, #000);
   border-radius: $card-radius;
-  text-align: left;
+  box-shadow: $card-shadow;
 
   img {
-    width: 100%;
+    width: 80%;
   }
+}
+
+.stock-pile::before {
+  content: "";
+  position: absolute;
+  top: calc(4% - 1px);
+  left: calc(4% - 1px);
+  width: 92%;
+  height: 92%;
+  border: 1px solid $color-primary;
+  border-radius: 4px;
 }
 
 .stock-pile:hover {

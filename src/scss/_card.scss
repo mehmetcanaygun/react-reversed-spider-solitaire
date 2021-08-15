@@ -18,9 +18,26 @@
   }
 
   .card-back {
+    background-image: linear-gradient($color-dark, #000);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
     img {
-      width: 100%;
+      width: 80%;
     }
+  }
+
+  .card-back::before {
+    content: "";
+    position: absolute;
+    top: calc(4% - 1px);
+    left: calc(4% - 1px);
+    width: 92%;
+    height: 92%;
+    border: 1px solid $color-primary;
+    border-radius: 4px;
   }
 
   .card-front {

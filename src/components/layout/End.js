@@ -8,7 +8,7 @@ const End = () => {
   return (
     <div className="end">
       <div className="img-container">
-        <img src="/assets/end-spider.svg" alt="Spider" />
+        <img src="/assets/end-spider.png" alt="Spider" />
       </div>
 
       <p className="end-msg">Congratulations</p>

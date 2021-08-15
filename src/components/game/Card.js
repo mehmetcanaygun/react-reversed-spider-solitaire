@@ -40,8 +40,9 @@ const Card = ({ card, cardIndex, pickCards, style }) => {
       }}
     >
       <div className="card-back">
-        <img src="/assets/card-back.svg" alt="Card Back" />
+        <img src="/assets/card-back-spider.png" alt="Card Back" />
       </div>
+
       <div className="card-front">
         <div className="top-left-text">{formatCardText(card.cardText)}</div>
 

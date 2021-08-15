@@ -10,106 +10,29 @@ const Foundations = () => {
     return index <= foundations ? "foundation-slot filled" : "foundation-slot";
   };
 
-  return (
-    <ul className="foundations">
-      <li className={isFoundationFilled(8)}>
-        <img
-          src="/assets/foundation-card.svg"
-          className="empty-card"
-          alt="Empty Foundation"
-        />
-        <img
-          src="/assets/foundation-card-filled.svg"
-          className="filled-card"
-          alt="Filled Foundation"
-        />
-      </li>
-      <li className={isFoundationFilled(7)}>
-        <img
-          src="/assets/foundation-card.svg"
-          className="empty-card"
-          alt="Empty Foundation"
-        />
-        <img
-          src="/assets/foundation-card-filled.svg"
-          className="filled-card"
-          alt="Filled Foundation"
-        />
-      </li>
-      <li className={isFoundationFilled(6)}>
-        <img
-          src="/assets/foundation-card.svg"
-          className="empty-card"
-          alt="Empty Foundation"
-        />
-        <img
-          src="/assets/foundation-card-filled.svg"
-          className="filled-card"
-          alt="Filled Foundation"
-        />
-      </li>
-      <li className={isFoundationFilled(5)}>
-        <img
-          src="/assets/foundation-card.svg"
-          className="empty-card"
-          alt="Empty Foundation"
-        />
-        <img
-          src="/assets/foundation-card-filled.svg"
-          className="filled-card"
-          alt="Filled Foundation"
-        />
-      </li>
-      <li className={isFoundationFilled(4)}>
-        <img
-          src="/assets/foundation-card.svg"
-          className="empty-card"
-          alt="Empty Foundation"
-        />
-        <img
-          src="/assets/foundation-card-filled.svg"
-          className="filled-card"
-          alt="Filled Foundation"
-        />
-      </li>
-      <li className={isFoundationFilled(3)}>
-        <img
-          src="/assets/foundation-card.svg"
-          className="empty-card"
-          alt="Empty Foundation"
-        />
-        <img
-          src="/assets/foundation-card-filled.svg"
-          className="filled-card"
-          alt="Filled Foundation"
-        />
-      </li>
-      <li className={isFoundationFilled(2)}>
-        <img
-          src="/assets/foundation-card.svg"
-          className="empty-card"
-          alt="Empty Foundation"
-        />
-        <img
-          src="/assets/foundation-card-filled.svg"
-          className="filled-card"
-          alt="Filled Foundation"
-        />
-      </li>
-      <li className={isFoundationFilled(1)}>
-        <img
-          src="/assets/foundation-card.svg"
-          className="empty-card"
-          alt="Empty Foundation"
-        />
-        <img
-          src="/assets/foundation-card-filled.svg"
-          className="filled-card"
-          alt="Filled Foundation"
-        />
-      </li>
-    </ul>
-  );
+  const printFoundations = () => {
+    let fndArr = [];
+
+    for (let i = 8; i >= 1; i--) {
+      fndArr.push(
+        <li key={i} className={isFoundationFilled(i)}>
+          <div className="foundation-front">
+            <img src="/assets/foundation-spider.png" alt="Empty Foundation" />
+          </div>
+          <div className="foundation-back">
+            <img
+              src="/assets/foundation-spider-filled.png"
+              alt="Filled Foundation"
+            />
+          </div>
+        </li>
+      );
+    }
+
+    return fndArr;
+  };
+
+  return <ul className="foundations">{printFoundations()}</ul>;
 };
 
 export default Foundations;

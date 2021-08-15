@@ -14,7 +14,7 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: scroll;
+  background-attachment: fixed;
 }
 
 ul {
@@ -236,18 +236,39 @@ a {
 }
 
 .stock-pile {
-  width: 100px;
-  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   position: absolute;
   top: 0;
+  width: 100px;
+  height: 100%;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#161616), to(#000));
+  background-image: linear-gradient(#161616, #000);
+  border-radius: 6px;
   -webkit-box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.6);
           box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.6);
-  border-radius: 6px;
-  text-align: left;
 }
 
 .stock-pile img {
-  width: 100%;
+  width: 80%;
+}
+
+.stock-pile::before {
+  content: "";
+  position: absolute;
+  top: calc(4% - 1px);
+  left: calc(4% - 1px);
+  width: 92%;
+  height: 92%;
+  border: 1px solid #451b75;
+  border-radius: 4px;
 }
 
 .stock-pile:hover {
@@ -293,40 +314,75 @@ a {
 
 .foundation-slot {
   width: 100px;
-  height: 100%;
+  height: 148px;
   border-radius: 6px;
   position: relative;
 }
 
-.foundation-slot .empty-card,
-.foundation-slot .filled-card {
-  width: 100%;
-  -webkit-box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.6);
-          box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.6);
+.foundation-slot .foundation-front,
+.foundation-slot .foundation-back {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   position: absolute;
   top: 0;
   left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
   -webkit-transition: opacity 0.3s 0.2s, -webkit-transform 0.6s;
   transition: opacity 0.3s 0.2s, -webkit-transform 0.6s;
   transition: transform 0.6s, opacity 0.3s 0.2s;
   transition: transform 0.6s, opacity 0.3s 0.2s, -webkit-transform 0.6s;
 }
 
-.foundation-slot .empty-card {
-  background-color: rgba(0, 0, 0, 0.2);
+.foundation-slot .foundation-front img,
+.foundation-slot .foundation-back img {
+  width: 80%;
 }
 
-.foundation-slot .filled-card {
+.foundation-slot .foundation-front {
+  background-color: rgba(22, 22, 22, 0.2);
+}
+
+.foundation-slot .foundation-back {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#68132c), to(#520f23));
+  background-image: linear-gradient(#68132c, #520f23);
   opacity: 0;
 }
 
-.foundation-slot.filled .empty-card {
+.foundation-slot .foundation-front::before,
+.foundation-slot .foundation-back::before {
+  content: "";
+  position: absolute;
+  top: calc(4% - 1px);
+  left: calc(4% - 1px);
+  width: 92%;
+  height: 92%;
+  border-radius: 4px;
+}
+
+.foundation-slot .foundation-front::before {
+  border: 1px solid rgba(238, 238, 238, 0.4);
+}
+
+.foundation-slot .foundation-back::before {
+  border: 1px solid #851939;
+}
+
+.foundation-slot.filled .foundation-front {
   -webkit-transform: rotateY(180deg);
           transform: rotateY(180deg);
   opacity: 0;
 }
 
-.foundation-slot.filled .filled-card {
+.foundation-slot.filled .foundation-back {
   -webkit-transform: rotateY(180deg);
           transform: rotateY(180deg);
   opacity: 1;
@@ -384,8 +440,34 @@ a {
   border-radius: 6px;
 }
 
+.card .card-back {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#161616), to(#000));
+  background-image: linear-gradient(#161616, #000);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+
 .card .card-back img {
-  width: 100%;
+  width: 80%;
+}
+
+.card .card-back::before {
+  content: "";
+  position: absolute;
+  top: calc(4% - 1px);
+  left: calc(4% - 1px);
+  width: 92%;
+  height: 92%;
+  border: 1px solid #451b75;
+  border-radius: 4px;
 }
 
 .card .card-front {
@@ -706,6 +788,10 @@ a {
   height: 100%;
   -webkit-filter: drop-shadow(0px 10px 6px rgba(0, 0, 0, 0.6));
           filter: drop-shadow(0px 10px 6px rgba(0, 0, 0, 0.6));
+  -webkit-transition: -webkit-transform 0.6s;
+  transition: -webkit-transform 0.6s;
+  transition: transform 0.6s;
+  transition: transform 0.6s, -webkit-transform 0.6s;
 }
 
 .end .img-container::before {
@@ -717,6 +803,17 @@ a {
   height: 100px;
   background-color: #eeeeee;
   z-index: -1;
+  -webkit-transition: height 0.6s;
+  transition: height 0.6s;
+}
+
+.end .img-container:hover img {
+  -webkit-transform: translateY(100px);
+          transform: translateY(100px);
+}
+
+.end .img-container:hover::before {
+  height: 200px;
 }
 
 .end .end-msg {

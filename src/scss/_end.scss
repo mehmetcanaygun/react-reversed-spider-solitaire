@@ -29,6 +29,7 @@
     img {
       height: 100%;
       filter: drop-shadow(0px 10px 6px rgba(#000, 0.6));
+      transition: transform 0.6s;
     }
   }
 
@@ -41,6 +42,17 @@
     height: 100px;
     background-color: $color-light;
     z-index: -1;
+    transition: height 0.6s;
+  }
+
+  .img-container:hover {
+    img {
+      transform: translateY(100px);
+    }
+
+    &::before {
+      height: 200px;
+    }
   }
 
   .end-msg {
