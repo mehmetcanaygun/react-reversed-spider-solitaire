@@ -4,7 +4,6 @@
   border-radius: $card-radius;
   box-shadow: $card-shadow;
   position: absolute;
-  top: 0;
   left: 0;
   cursor: pointer;
   animation: slideUp 0.3s ease;
@@ -123,5 +122,38 @@
   }
   to {
     transform: translateY(0);
+  }
+}
+
+// Media Queries
+@media (max-width: 1300px) {
+  .card {
+    width: $card-width-lg;
+    height: $card-height-lg;
+    box-shadow: $card-shadow-lg;
+  }
+}
+
+@media (max-width: 940px) {
+  .card {
+    width: $card-width-md;
+    height: $card-height-md;
+    box-shadow: $card-shadow-md;
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    width: $card-width-sm;
+    height: $card-height-sm;
+    box-shadow: $card-shadow-sm;
+
+    .card-front {
+      .top-left-text,
+      .bottom-right-text {
+        padding: 2px;
+        font-size: 14px;
+      }
+    }
   }
 }

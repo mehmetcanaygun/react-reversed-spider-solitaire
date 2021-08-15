@@ -17,3 +17,25 @@
   border: 2px solid rgba($color-secondary, 0.5);
   border-radius: $card-radius;
 }
+
+// Media Queries
+@media (max-width: 1300px) {
+  .pile {
+    width: $card-width-lg;
+    height: $card-height-lg;
+  }
+}
+
+@media (max-width: 940px) {
+  .pile {
+    width: $card-width-md;
+    height: $card-height-md;
+  }
+}
+
+@media (max-width: 768px) {
+  .pile {
+    width: $card-width-sm;
+    height: $card-height-sm;
+  }
+}

@@ -1,4 +1,5 @@
 .navbar {
+  width: 100%;
   height: $navbar-height;
   margin-bottom: 20px;
   background-color: rgba(#000, 0.6);
@@ -9,8 +10,9 @@
     width: $container-width;
     height: 100%;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
     .logo {
       height: 100%;
@@ -21,42 +23,21 @@
         max-height: 96%;
       }
     }
+  }
+}
 
-    .navbar-nav {
-      ul {
-        height: 100%;
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-
-        li {
-          a {
-            color: $color-light;
-            position: relative;
-          }
-
-          a::before {
-            content: "";
-            position: absolute;
-            top: calc(50% - 3px);
-            left: -10px;
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background-color: $color-secondary;
-            transform: scale(0);
-            transition: transform 0.3s;
-          }
-
-          a.active::before {
-            transform: scale(1);
-          }
-        }
-
-        li:last-child {
-          margin-left: 30px;
-        }
-      }
+// Media Queries
+@media (max-width: 1300px) {
+  .navbar {
+    .container {
+      width: 100%;
+      padding: 0 $padding-horizontal;
     }
+  }
+}
+
+@media (max-width: 940px) {
+  .navbar {
+    height: $navbar-height-md;
   }
 }

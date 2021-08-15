@@ -24,3 +24,22 @@ $card-height: 148px;
 $card-shadow: 0px 0px 6px rgba(#000, 0.6);
 $card-hover-shadow: 0px 0px 4px 4px rgba($color-tertiary, 0.8);
 $card-radius: 6px;
+
+// Sizes for smaller screens
+
+// LG - For max-width: 1300px
+$card-width-lg: 86px;
+$card-height-lg: 127px;
+$card-shadow-lg: 0px 0px 4px rgba(#000, 0.4);
+
+// MD - For max-width: 940px
+$navbar-height-md: 64px;
+
+$card-width-md: 68px;
+$card-height-md: 101px;
+$card-shadow-md: 0px 0px 2px rgba(#000, 0.2);
+
+// SM - For max-width: 768px
+$card-width-sm: 36px;
+$card-height-sm: 53px;
+$card-shadow-sm: none;

@@ -76,3 +76,40 @@
     opacity: 1;
   }
 }
+
+// Media Queries
+@media (max-width: 1300px) {
+  .foundations {
+    height: $card-height-lg;
+    gap: 4px;
+  }
+
+  .foundation-slot {
+    width: $card-width-lg;
+    height: $card-height-lg;
+  }
+}
+
+@media (max-width: 940px) {
+  .foundations {
+    height: $card-height-md;
+    gap: 4px;
+  }
+
+  .foundation-slot {
+    width: $card-width-md;
+    height: $card-height-md;
+  }
+}
+
+@media (max-width: 768px) {
+  .foundations {
+    height: $card-height-sm;
+    gap: 2px;
+  }
+
+  .foundation-slot {
+    width: $card-width-sm;
+    height: $card-height-sm;
+  }
+}

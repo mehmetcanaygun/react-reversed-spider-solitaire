@@ -7,4 +7,28 @@
 .board-top {
   display: grid;
   grid-template-columns: 2fr 7fr;
+  height: $card-height;
+}
+
+// Media Queries
+@media (max-width: 1300px) {
+  .board {
+    gap: 30px;
+  }
+
+  .board-top {
+    height: $card-height-lg;
+  }
+}
+
+@media (max-width: 940px) {
+  .board-top {
+    height: $card-height-md;
+  }
+}
+
+@media (max-width: 768px) {
+  .board-top {
+    height: $card-height-sm;
+  }
 }

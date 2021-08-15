@@ -2,3 +2,11 @@
   max-width: $container-width;
   margin: 0 auto;
 }
+
+// Media Queries
+@media (max-width: 1300px) {
+  .home-page {
+    width: 100%;
+    padding: 0 $padding-horizontal;
+  }
+}

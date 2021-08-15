@@ -1,17 +1,18 @@
 .score-board {
-  width: 100%;
-  height: 100%;
+  width: 300px;
+  height: 36px;
   display: flex;
+  justify-content: space-between;
   align-items: center;
 
   .reset-btn {
+    width: 70px;
     height: 36px;
-    padding: 0 6px;
-    margin-right: 10px;
     border-radius: 4px;
     background-color: $color-secondary;
     border: none;
     display: flex;
+    justify-content: center;
     align-items: center;
     color: $color-light;
     cursor: pointer;
@@ -35,13 +36,34 @@
     justify-content: center;
     align-items: center;
     border-radius: 4px;
-    margin-right: 10px;
     background-color: $color-dark;
     color: $color-light;
 
     span {
       color: $color-secondary;
       margin-left: 4px;
+    }
+  }
+}
+
+@media (max-width: 940px) {
+  .score-board {
+    width: 230px;
+
+    .reset-btn {
+      width: 60px;
+      font-size: 13px;
+
+      img {
+        height: 30%;
+        margin-right: 2px;
+      }
+    }
+
+    .score,
+    .time {
+      width: 80px;
+      font-size: 13px;
     }
   }
 }
