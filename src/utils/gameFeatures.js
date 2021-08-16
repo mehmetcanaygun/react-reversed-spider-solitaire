@@ -26,3 +26,6 @@ export const CARD_TOP = 24;
 
 // Run score - It is the score that users get when they complete a run from A to K
 export const RUN_SCORE = 125;
+
+// Alert countdown - Milliseconds for alert box appearing on the screen
+export const ALERT_COUNTDOWN = 3000;

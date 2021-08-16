@@ -16,7 +16,13 @@ import {
   CLEAR_ALERT,
 } from "./types";
 
-import { CARD_DECK, STOCK_RULE, PILE_RULE } from "../utils/gameFeatures";
+import {
+  CARD_DECK,
+  STOCK_RULE,
+  PILE_RULE,
+  ALERT_COUNTDOWN,
+} from "../utils/gameFeatures";
+
 import {
   refactorCards,
   splitIntoChunks,
@@ -228,7 +234,7 @@ const SolitaireState = (props) => {
 
     setTimeout(() => {
       clearAlert();
-    }, 3000);
+    }, ALERT_COUNTDOWN);
   };
 
   // Clear Alert
