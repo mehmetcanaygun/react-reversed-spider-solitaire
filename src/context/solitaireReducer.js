@@ -63,6 +63,7 @@ const reducer = (state, action) => {
         ...state,
         tableau: payload.updatedTab,
         stock: payload.updatedStock,
+        foundations: payload.foundations,
       };
     case RESET:
       return {

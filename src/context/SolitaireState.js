@@ -206,10 +206,37 @@ const SolitaireState = (props) => {
       (stockPile, index) => index !== state.stock.length - 1
     );
 
-    dispatch({
-      type: ADD_CARDS,
-      payload: { updatedTab, updatedStock },
-    });
+    // Loop through all piles & Check if there's a match
+    for (let pile in updatedTab) {
+      if (isMatch(updatedTab[pile])) {
+        // Remove matched part from the pile
+        updatedTab[pile] = updatedTab[pile].slice(
+          0,
+          updatedTab[pile].length - 13
+        );
+
+        // Turn the last card if the pile's length is more than zero
+        if (updatedTab[pile].length > 0) {
+          updatedTab[pile][updatedTab[pile].length - 1].faceUp = true;
+        }
+
+        // Dispatch updatedTab, updatedStock and make sure to increase foundations
+        dispatch({
+          type: ADD_CARDS,
+          payload: {
+            updatedTab,
+            updatedStock,
+            foundations: state.foundations + 1,
+          },
+        });
+      } else {
+        // Just dispatch updatedTab and updatedStock
+        dispatch({
+          type: ADD_CARDS,
+          payload: { updatedTab, updatedStock, foundations: state.foundations },
+        });
+      }
+    }
   };
 
   // Reset
