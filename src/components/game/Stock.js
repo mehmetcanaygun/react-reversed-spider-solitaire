@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 
 const Stock = ({ stock }) => {
   const solitaireContext = useContext(SolitaireContext);
-  const { addCards, tableau } = solitaireContext;
+  const { addCards, tableau, setAlert } = solitaireContext;
 
   const handleAddingCards = () => {
     // Make sure stock has cards to add
@@ -14,7 +14,10 @@ const Stock = ({ stock }) => {
       if (!isPileEmpty(tableau)) {
         addCards(stock[stock.length - 1]);
       } else {
-        console.log("There's an empty pile");
+        setAlert(
+          "warning",
+          "All piles should have at least one card before adding cards"
+        );
       }
     }
   };

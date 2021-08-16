@@ -35,7 +35,6 @@ const Card = ({ card, cardIndex, pickCards, style }) => {
         if (card.faceUp) {
           pickCards(card, cardIndex);
         } else {
-          console.log("You cannot pick faced down cards");
           setAlert("warning", "You cannot pick faced down cards");
         }
       }}
