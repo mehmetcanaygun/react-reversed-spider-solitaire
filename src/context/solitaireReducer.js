@@ -9,6 +9,8 @@ import {
   ADD_CARDS,
   RESET,
   SET_TIME,
+  SET_ALERT,
+  CLEAR_ALERT,
 } from "./types";
 
 const reducer = (state, action) => {
@@ -76,6 +78,16 @@ const reducer = (state, action) => {
       return {
         ...state,
         time: payload,
+      };
+    case SET_ALERT:
+      return {
+        ...state,
+        alert: { type: payload.alertType, msg: payload.alertMsg },
+      };
+    case CLEAR_ALERT:
+      return {
+        ...state,
+        alert: null,
       };
     default:
       return state;

@@ -6,8 +6,15 @@
 @import "./reset";
 
 // Components
+
+// Layout
 @import "./navbar";
+@import "./start";
+@import "./end";
 @import "./score-board";
+@import "./alert";
+
+// Game
 @import "./board";
 @import "./stock";
 @import "./foundations";
@@ -15,9 +22,7 @@
 @import "./pile";
 @import "./card";
 
+// Pages
 @import "./home-page";
 @import "./about-page";
 @import "./not-found-page";
-
-@import "./start";
-@import "./end";

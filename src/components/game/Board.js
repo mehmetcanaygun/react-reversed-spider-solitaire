@@ -4,6 +4,7 @@ import Stock from "./Stock";
 import Tableau from "./Tableau";
 import Foundations from "./Foundations";
 import End from "../layout/End";
+import Alert from "../layout/Alert";
 
 const Board = () => {
   const solitaireContext = useContext(SolitaireContext);
@@ -22,6 +23,8 @@ const Board = () => {
         <End />
       ) : (
         <>
+          <Alert />
+
           <div className="board-top">
             <Stock stock={stock} />
             <Foundations />

@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 
 const Card = ({ card, cardIndex, pickCards, style }) => {
   const solitaireContext = useContext(SolitaireContext);
-  const { selected } = solitaireContext;
+  const { selected, setAlert } = solitaireContext;
 
   const createClassName = () => {
     let classes = ["card"];
@@ -36,6 +36,7 @@ const Card = ({ card, cardIndex, pickCards, style }) => {
           pickCards(card, cardIndex);
         } else {
           console.log("You cannot pick faced down cards");
+          setAlert("warning", "You cannot pick faced down cards");
         }
       }}
     >

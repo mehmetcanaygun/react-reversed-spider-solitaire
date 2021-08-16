@@ -12,6 +12,8 @@ import {
   ADD_CARDS,
   RESET,
   SET_TIME,
+  SET_ALERT,
+  CLEAR_ALERT,
 } from "./types";
 
 import { CARD_DECK, STOCK_RULE, PILE_RULE } from "../utils/gameFeatures";
@@ -32,6 +34,7 @@ const SolitaireState = (props) => {
     tableau: {},
     selected: [],
     time: 0,
+    alert: null,
     loading: false,
     isStarted: false,
   };
@@ -208,10 +211,30 @@ const SolitaireState = (props) => {
     });
   };
 
+  // Set Time Score - Set time to the global state so that it can be used in other components
   const setTimeScore = (time) => {
     dispatch({
       type: SET_TIME,
       payload: time,
+    });
+  };
+
+  // Set Alert
+  const setAlert = (alertType, alertMsg) => {
+    dispatch({
+      type: SET_ALERT,
+      payload: { alertType, alertMsg },
+    });
+
+    setTimeout(() => {
+      clearAlert();
+    }, 3000);
+  };
+
+  // Clear Alert
+  const clearAlert = () => {
+    dispatch({
+      type: CLEAR_ALERT,
     });
   };
 
@@ -226,6 +249,7 @@ const SolitaireState = (props) => {
         tableau: state.tableau,
         selected: state.selected,
         time: state.time,
+        alert: state.alert,
         createCards,
         setLoading,
         setStarted,
@@ -236,6 +260,8 @@ const SolitaireState = (props) => {
         addCards,
         reset,
         setTimeScore,
+        setAlert,
+        clearAlert,
       }}
     >
       {props.children}

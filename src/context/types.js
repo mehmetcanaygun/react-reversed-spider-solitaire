@@ -8,3 +8,5 @@ export const MOVE_CARDS = "MOVE_CARDS";
 export const ADD_CARDS = "ADD_CARDS";
 export const RESET = "RESET";
 export const SET_TIME = "SET_TIME";
+export const SET_ALERT = "SET_ALERT";
+export const CLEAR_ALERT = "CLEAR_ALERT";
