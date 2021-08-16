@@ -59,3 +59,12 @@ a {
 ::-webkit-scrollbar-thumb:hover {
   background: $color-secondary-dark;
 }
+
+// Remove blue button outline on mobile devices
+input,
+textarea,
+button,
+select,
+a {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
