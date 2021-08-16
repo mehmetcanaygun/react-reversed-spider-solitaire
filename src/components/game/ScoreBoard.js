@@ -5,7 +5,7 @@ import { formatTime } from "../../utils/helpers";
 
 const ScoreBoard = () => {
   const solitaireContext = useContext(SolitaireContext);
-  const { isStarted, createCards, foundations, reset, setTimeScore } =
+  const { isStarted, createCards, foundations, reset, setTimeScore, isEnded } =
     solitaireContext;
 
   const timerRef = useRef(0);
@@ -19,7 +19,7 @@ const ScoreBoard = () => {
     }
 
     // Set time to the global state when the game ends, so that it can be shown on End component
-    if (foundations === 8) {
+    if (isEnded) {
       setTimeScore(time);
     }
 
@@ -31,7 +31,7 @@ const ScoreBoard = () => {
     };
 
     // eslint-disable-next-line
-  }, [isStarted, foundations]);
+  }, [isStarted, isEnded]);
 
   return (
     <div className="score-board">

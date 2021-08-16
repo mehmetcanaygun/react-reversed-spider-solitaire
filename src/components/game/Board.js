@@ -8,7 +8,7 @@ import Alert from "../layout/Alert";
 
 const Board = () => {
   const solitaireContext = useContext(SolitaireContext);
-  const { cards, createStockAndTableau, stock, tableau, foundations } =
+  const { cards, createStockAndTableau, stock, tableau, isEnded } =
     solitaireContext;
 
   useEffect(() => {
@@ -19,7 +19,7 @@ const Board = () => {
 
   return (
     <div className="board">
-      {foundations === 8 ? (
+      {isEnded ? (
         <End />
       ) : (
         <>

@@ -10,3 +10,4 @@ export const RESET = "RESET";
 export const SET_TIME = "SET_TIME";
 export const SET_ALERT = "SET_ALERT";
 export const CLEAR_ALERT = "CLEAR_ALERT";
+export const SET_ENDED = "SET_ENDED";

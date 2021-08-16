@@ -11,6 +11,7 @@ import {
   SET_TIME,
   SET_ALERT,
   CLEAR_ALERT,
+  SET_ENDED,
 } from "./types";
 
 const reducer = (state, action) => {
@@ -73,6 +74,7 @@ const reducer = (state, action) => {
         time: 0,
         loading: false,
         isStarted: false,
+        isEnded: false,
       };
     case SET_TIME:
       return {
@@ -88,6 +90,11 @@ const reducer = (state, action) => {
       return {
         ...state,
         alert: null,
+      };
+    case SET_ENDED:
+      return {
+        ...state,
+        isEnded: true,
       };
     default:
       return state;

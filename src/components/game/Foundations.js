@@ -1,9 +1,9 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import SolitaireContext from "../../context/solitaireContext";
 
 const Foundations = () => {
   const solitaireContext = useContext(SolitaireContext);
-  const { foundations } = solitaireContext;
+  const { foundations, setEnded } = solitaireContext;
 
   // Determine if the foundation slot will be filled or not
   const isFoundationFilled = (index) => {
@@ -34,6 +34,12 @@ const Foundations = () => {
 
     return fndArr;
   };
+
+  useEffect(() => {
+    if (foundations === 8) setEnded();
+
+    // eslint-disable-next-line
+  }, [foundations]);
 
   return <ul className="foundations">{printFoundations()}</ul>;
 };

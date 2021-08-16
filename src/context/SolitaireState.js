@@ -14,6 +14,7 @@ import {
   SET_TIME,
   SET_ALERT,
   CLEAR_ALERT,
+  SET_ENDED,
 } from "./types";
 
 import {
@@ -43,6 +44,7 @@ const SolitaireState = (props) => {
     alert: null,
     loading: false,
     isStarted: false,
+    isEnded: false,
   };
 
   const [state, dispatch] = useReducer(SolitaireReducer, initialState);
@@ -244,6 +246,13 @@ const SolitaireState = (props) => {
     });
   };
 
+  // Set Ended
+  const setEnded = () => {
+    dispatch({
+      type: SET_ENDED,
+    });
+  };
+
   return (
     <SolitaireContext.Provider
       value={{
@@ -256,6 +265,7 @@ const SolitaireState = (props) => {
         selected: state.selected,
         time: state.time,
         alert: state.alert,
+        isEnded: state.isEnded,
         createCards,
         setLoading,
         setStarted,
@@ -268,6 +278,7 @@ const SolitaireState = (props) => {
         setTimeScore,
         setAlert,
         clearAlert,
+        setEnded,
       }}
     >
       {props.children}
