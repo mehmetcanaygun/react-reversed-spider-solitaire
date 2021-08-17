@@ -127,22 +127,27 @@ it("should return an object with 'pileX' keys, each pile should be an array of o
   expect(arrAfter).toEqual(expectedObj);
 });
 
-it("should format text if the text is '1', '10', '11', '12', or '13'", () => {
+it("should format text if the text is '1', '11', '12', or '13'", () => {
   // arrange
-  const textBeforeFirst = "1";
-  const expectedTextFirst = "A";
-
-  const textBeforeSecond = "5";
-  const expectedTextSecond = "5";
+  const textBeforeOne = "1";
+  const textBeforeTwo = "11";
+  const textBeforeThree = "12";
+  const textBeforeFour = "13";
+  const textBeforeFive = "5";
 
   // act
-  const textAfterFirst = formatCardText(textBeforeFirst);
-  const textAfterSecond = formatCardText(textBeforeSecond);
+  const textAfterOne = formatCardText(textBeforeOne);
+  const textAfterTwo = formatCardText(textBeforeTwo);
+  const textAfterThree = formatCardText(textBeforeThree);
+  const textAfterFour = formatCardText(textBeforeFour);
+  const textAfterFive = formatCardText(textBeforeFive);
 
   // assert
-  expect(textAfterFirst).toBe(expectedTextFirst);
-  expect(textAfterFirst).not.toBe(textBeforeFirst);
-  expect(textAfterSecond).toBe(expectedTextSecond);
+  expect(textAfterOne).toBe("A");
+  expect(textAfterTwo).toBe("J");
+  expect(textAfterThree).toBe("Q");
+  expect(textAfterFour).toBe("K");
+  expect(textAfterFive).toBe("5");
 });
 
 it("should check if the given array of card object are lined up correctly and return a Boolean", () => {
@@ -170,7 +175,7 @@ it("should check if the given array of card object are lined up correctly and re
 
 it("should check if there's a match from '1' to '13' in the given array and return a Boolean", () => {
   // arrange
-  const cardsArrMatch = [
+  const cardsArrOne = [
     { cardId: 13, cardText: "5" },
     { cardId: 14, cardText: "6" },
     { cardId: 0, cardText: "1" },
@@ -187,7 +192,7 @@ it("should check if there's a match from '1' to '13' in the given array and retu
     { cardId: 11, cardText: "12" },
     { cardId: 12, cardText: "13" },
   ];
-  const cardsArrNoMatch = [
+  const cardsArrTwo = [
     { cardId: 4, cardText: "5" },
     { cardId: 5, cardText: "6" },
     { cardId: 6, cardText: "7" },
@@ -198,11 +203,11 @@ it("should check if there's a match from '1' to '13' in the given array and retu
     { cardId: 11, cardText: "12" },
     { cardId: 12, cardText: "13" },
   ];
-  const cardsArrNoMatchSecond = [
-    { cardId: 0, cardText: "1" },
+  const cardsArrThree = [
     { cardId: 1, cardText: "2" },
-    { cardId: 2, cardText: "3" },
+    { cardId: 0, cardText: "1" },
     { cardId: 3, cardText: "4" },
+    { cardId: 2, cardText: "3" },
     { cardId: 4, cardText: "5" },
     { cardId: 5, cardText: "6" },
     { cardId: 6, cardText: "7" },
@@ -212,14 +217,12 @@ it("should check if there's a match from '1' to '13' in the given array and retu
     { cardId: 10, cardText: "11" },
     { cardId: 11, cardText: "12" },
     { cardId: 12, cardText: "13" },
-    { cardId: 13, cardText: "5" },
-    { cardId: 14, cardText: "6" },
   ];
 
   // act
-  const resultOne = isMatch(cardsArrMatch);
-  const resultTwo = isMatch(cardsArrNoMatch);
-  const resultThree = isMatch(cardsArrNoMatchSecond);
+  const resultOne = isMatch(cardsArrOne);
+  const resultTwo = isMatch(cardsArrTwo);
+  const resultThree = isMatch(cardsArrThree);
 
   // assert
   expect(resultOne).toBeTruthy();
@@ -229,14 +232,19 @@ it("should check if there's a match from '1' to '13' in the given array and retu
 
 it("should take seconds and returns time string in 'mm:ss' format", () => {
   // arrange
-  const timeInSeconds = 100;
-  const expectedTime = "01:40";
+  const timeOne = 100;
+  const expectedTimeOne = "01:40";
+
+  const timeTwo = 60 * 60 * 60 + 1; // More than an hour
+  const expectedTimeTwo = ":(";
 
   // act
-  const formattedTime = formatTime(timeInSeconds);
+  const formattedTimeOne = formatTime(timeOne);
+  const formattedTimeTwo = formatTime(timeTwo);
 
   // assert
-  expect(formattedTime).toBe(expectedTime);
+  expect(formattedTimeOne).toBe(expectedTimeOne);
+  expect(formattedTimeTwo).toBe(expectedTimeTwo);
 });
 
 it("should check if any of the arrays in the given object is empty and return a Boolean", () => {
