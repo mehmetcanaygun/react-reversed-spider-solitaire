@@ -7,19 +7,21 @@ export const refactorCards = (arr) => {
     };
   });
 
-  return shuffleArray(refactoredCards);
+  return refactoredCards;
 };
 
 // Suffle Array - Takes and returns shuffled array
 export const shuffleArray = (arr) => {
-  for (let i = arr.length - 1; i > 0; i--) {
+  const shuffled = [...arr];
+
+  for (let i = shuffled.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
-    const temp = arr[i];
-    arr[i] = arr[j];
-    arr[j] = temp;
+    const temp = shuffled[i];
+    shuffled[i] = shuffled[j];
+    shuffled[j] = temp;
   }
 
-  return arr;
+  return shuffled;
 };
 
 // Split Into Chunks - Takes the main array and chunk rule array and returns splitted array

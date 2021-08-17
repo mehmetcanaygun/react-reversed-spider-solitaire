@@ -25,6 +25,7 @@ import {
 } from "../utils/gameFeatures";
 
 import {
+  shuffleArray,
   refactorCards,
   splitIntoChunks,
   mergeChunks,
@@ -57,7 +58,9 @@ const SolitaireState = (props) => {
     // Firstly, create an array of 8 cardDeck arrays
     // Then, merge cardDeck arrays into one big array of 104 cards
     // Lastly, refactor them so that each item can have cardId attribute
-    const cards = refactorCards(mergeChunks(Array(8).fill(CARD_DECK)));
+    const cards = shuffleArray(
+      refactorCards(mergeChunks(Array(8).fill(CARD_DECK)))
+    );
 
     // Dispatch shuffled final array of cards
     dispatch({
