@@ -43,6 +43,7 @@ const Pile = ({ pile = [], pileIndex }) => {
   if (pile) {
     return (
       <div
+        data-testid="pile"
         className="pile"
         onClick={() => {
           if (pile.length === 0) moveToEmptyPile(pileIndex);
