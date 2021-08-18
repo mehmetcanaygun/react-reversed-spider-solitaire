@@ -1,8 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import SolitaireContext from "../../context/solitaireContext";
+import SolitaireContext from "../../../context/solitaireContext";
 
-import End from "../../components/layout/End";
+import End from "../../../components/layout/End";
 
 it("should render End component", () => {
   const reset = () => {

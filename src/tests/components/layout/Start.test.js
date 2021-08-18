@@ -1,8 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import SolitaireContext from "../../context/solitaireContext";
+import SolitaireContext from "../../../context/solitaireContext";
 
-import Start from "../../components/layout/Start";
+import Start from "../../../components/layout/Start";
 
 it("should render Start component", () => {
   const setStarted = () => {

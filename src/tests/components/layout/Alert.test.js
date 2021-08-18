@@ -1,8 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import SolitaireContext from "../../context/solitaireContext";
+import SolitaireContext from "../../../context/solitaireContext";
 
-import Alert from "../../components/layout/Alert";
+import Alert from "../../../components/layout/Alert";
 
 it("should render Alert component", () => {
   const alert = { type: "warning", msg: "Example Alert" };

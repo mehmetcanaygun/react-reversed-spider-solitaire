@@ -43,12 +43,20 @@ it("should split an array with the given chunks and return it", () => {
   // arrange
   const arrBefore = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   const chunkRule = [2, 2, 2, 2, 2];
+  const expectedArr = [
+    [1, 2],
+    [3, 4],
+    [5, 6],
+    [7, 8],
+    [9, 10],
+  ];
 
   // act
   const arrAfter = splitIntoChunks(arrBefore, chunkRule);
 
   // assert
   expect(arrAfter).toHaveLength(chunkRule.length);
+  expect(arrAfter).toEqual(expectedArr);
 });
 
 it("should merge chunks and return the array", () => {
