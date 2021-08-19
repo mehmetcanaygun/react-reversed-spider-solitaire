@@ -12,7 +12,7 @@ import {
   isPileEmpty,
 } from "../../utils/helpers";
 
-it("should return array of objects with cardText and cardId", () => {
+it("should return an array of objects with cardText and cardId", () => {
   // arrange
   const cardArrBefore = ["1", "2", "3"];
   const expectedCardArr = [
@@ -158,7 +158,7 @@ it("should format text if the text is '1', '11', '12', or '13'", () => {
   expect(textAfterFive).toBe("5");
 });
 
-it("should check if the given array of card object are lined up correctly and return a Boolean", () => {
+it("should check if the given array of card objects are lined up correctly and return a Boolean", () => {
   // arrange
   const cardsArrLinedUp = [
     { cardId: 0, cardText: "9" },

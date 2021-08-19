@@ -16,3 +16,15 @@ it("should render Alert component", () => {
   expect(screen.getByText("Example Alert")).toBeInTheDocument();
   expect(screen.getByAltText("Info")).toBeInTheDocument();
 });
+
+it("should not render Alert component if alert state is null", () => {
+  const alert = null;
+
+  render(
+    <SolitaireContext.Provider value={{ alert }}>
+      <Alert />
+    </SolitaireContext.Provider>
+  );
+
+  expect(screen.queryByAltText("Info")).not.toBeInTheDocument();
+});

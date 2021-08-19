@@ -36,13 +36,14 @@ const ScoreBoard = () => {
   return (
     <div className="score-board">
       <button
+        data-testid="reset-btn"
         className="reset-btn"
         onClick={() => {
           reset();
           createCards();
         }}
       >
-        <img src="/assets/icon-reset.svg" alt="Left Chevron" /> Reset
+        <img src="/assets/icon-reset.svg" alt="Reset" /> Reset
       </button>
 
       <p className="score">

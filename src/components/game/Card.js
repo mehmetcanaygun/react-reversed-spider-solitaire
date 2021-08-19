@@ -29,6 +29,7 @@ const Card = ({ card, cardIndex, pickCards, style }) => {
 
   return (
     <div
+      data-testid="card"
       className={createClassName()}
       style={style}
       onClick={() => {
