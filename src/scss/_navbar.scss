@@ -1,13 +1,7 @@
 .navbar {
-  width: 100%;
   height: $navbar-height;
-  margin-bottom: 20px;
-  background-color: rgba(#000, 0.6);
-  box-shadow: 0px 2px 10px 0px rgba(#000, 0.8);
-  border-bottom: 1px solid $color-secondary;
 
   .container {
-    width: $container-width;
     height: 100%;
     margin: 0 auto;
     display: flex;

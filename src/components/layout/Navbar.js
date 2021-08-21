@@ -1,5 +1,4 @@
 import React from "react";
-import ScoreBoard from "../game/ScoreBoard";
 
 const Navbar = () => {
   return (
@@ -14,8 +13,6 @@ const Navbar = () => {
             <img src="/assets/navbar-logo.png" alt="MCA's Spider Solitaire" />
           </picture>
         </a>
-
-        <ScoreBoard />
       </div>
     </header>
   );
