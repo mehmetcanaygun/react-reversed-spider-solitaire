@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Navbar from "./components/layout/Navbar";
 import ScoreBoard from "./components/game/ScoreBoard";
+import Footer from "./components/layout/Footer";
 import Home from "./components/pages/Home";
 import About from "./components/pages/About";
 import NotFound from "./components/pages/NotFound";
@@ -23,6 +24,7 @@ function App() {
             <Route exact path="/about" component={About} />
             <Route component={NotFound} />
           </Switch>
+          <Footer />
         </div>
       </Router>
     </SolitaireState>
