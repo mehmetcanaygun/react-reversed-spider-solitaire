@@ -22,6 +22,7 @@
   background-image: linear-gradient($color-dark, #000);
   border-radius: $card-radius;
   box-shadow: $card-shadow;
+  transition: box-shadow 0.2s;
 
   img {
     width: 80%;
