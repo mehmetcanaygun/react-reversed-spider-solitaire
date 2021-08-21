@@ -18,10 +18,33 @@
   border-radius: $card-radius;
 }
 
+.pile::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: $card-height-sm;
+  border-radius: $card-radius;
+  background-color: rgba(#000, 0.2);
+  z-index: -1;
+  display: none;
+}
+
 // Media Queries
 @media (max-width: 1300px) {
   .pile {
     width: $card-width-lg;
+    height: $card-height-lg;
+    background: none;
+  }
+
+  .pile::before {
+    display: none;
+  }
+
+  .pile::after {
+    display: block;
     height: $card-height-lg;
   }
 }
@@ -30,6 +53,16 @@
   .pile {
     width: $card-width-md;
     height: $card-height-md;
+  }
+
+  .pile::after {
+    height: $card-height-md;
+  }
+}
+
+@media (max-width: 768px) {
+  .pile::after {
+    height: $card-height-sm;
   }
 }
 

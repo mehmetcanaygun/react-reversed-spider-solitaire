@@ -13,6 +13,7 @@
     rgba(50, 13, 58, 1) 0%,
     rgba(69, 27, 117, 1) 50%
   );
+  z-index: 10;
 
   .container {
     width: 800px;
@@ -153,6 +154,7 @@
       height: 100%;
       padding: 30px;
       border-radius: 0;
+      box-shadow: none;
 
       .title {
         font-size: 24px;

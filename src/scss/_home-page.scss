@@ -1,5 +1,6 @@
 .home-page {
   max-width: $container-width;
+  min-height: calc(100vh - 80px);
   margin: 0 auto;
 }
 

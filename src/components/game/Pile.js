@@ -40,11 +40,31 @@ const Pile = ({ pile = [], pileIndex }) => {
     }
   };
 
+  // Set Pile Height - Since pile height depends on pile length, make sure to set it right in accordance with the browser width
+  const setPileHeight = () => {
+    let cardHeight;
+
+    if (window.innerWidth > 1300) {
+      cardHeight = 148;
+    } else if (window.innerWidth < 1300 && window.innerWidth >= 940) {
+      cardHeight = 127;
+    } else if (window.innerWidth < 940 && window.innerWidth >= 768) {
+      cardHeight = 101;
+    } else {
+      cardHeight = 53;
+    }
+
+    return {
+      height: `${(pile.length - 1) * CARD_TOP + cardHeight}px`,
+    };
+  };
+
   if (pile) {
     return (
       <div
         data-testid="pile"
         className="pile"
+        style={setPileHeight()}
         onClick={() => {
           if (pile.length === 0) moveToEmptyPile(pileIndex);
         }}
