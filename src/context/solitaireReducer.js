@@ -1,6 +1,5 @@
 import {
   CREATE_CARDS,
-  SET_LOADING,
   SET_STARTED,
   CREATE_STOCK_AND_TABLEAU,
   SET_SELECTED,
@@ -22,12 +21,6 @@ const reducer = (state, action) => {
       return {
         ...state,
         cards: payload,
-        loading: false,
-      };
-    case SET_LOADING:
-      return {
-        ...state,
-        loading: true,
       };
     case SET_STARTED:
       return {
@@ -39,7 +32,6 @@ const reducer = (state, action) => {
         ...state,
         stock: payload.stock,
         tableau: payload.tableau,
-        loading: false,
       };
     case SET_SELECTED:
       return {
@@ -96,6 +88,7 @@ const reducer = (state, action) => {
       return {
         ...state,
         isEnded: true,
+        trophy: state.trophy + 1,
       };
     default:
       return state;

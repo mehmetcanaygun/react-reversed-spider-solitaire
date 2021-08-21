@@ -1,13 +1,12 @@
 .score-board {
-  width: 300px;
   height: 36px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 
   .reset-btn {
-    width: 70px;
     height: 36px;
+    padding: 0 12px;
     border-radius: 4px;
     background-color: $color-secondary;
     border: none;
@@ -29,7 +28,8 @@
   }
 
   .score,
-  .time {
+  .time,
+  .trophy {
     width: 100px;
     height: 36px;
     display: flex;
@@ -44,24 +44,35 @@
       margin-left: 4px;
     }
   }
+
+  .trophy {
+    img {
+      height: 60%;
+      margin-right: 10px;
+    }
+  }
+
+  button,
+  p {
+    margin-right: 6px;
+  }
 }
 
 @media (max-width: 940px) {
   .score-board {
-    width: 230px;
-
     .reset-btn {
-      width: 60px;
-      font-size: 13px;
-
       img {
-        height: 30%;
-        margin-right: 2px;
+        margin-right: 0;
+      }
+
+      span {
+        display: none;
       }
     }
 
     .score,
-    .time {
+    .time,
+    .trophy {
       width: 80px;
       font-size: 13px;
     }

@@ -5,8 +5,15 @@ import { formatTime } from "../../utils/helpers";
 
 const ScoreBoard = () => {
   const solitaireContext = useContext(SolitaireContext);
-  const { isStarted, createCards, foundations, reset, setTimeScore, isEnded } =
-    solitaireContext;
+  const {
+    isStarted,
+    createCards,
+    foundations,
+    reset,
+    setTimeScore,
+    isEnded,
+    trophy,
+  } = solitaireContext;
 
   const timerRef = useRef(0);
   const [time, setTime] = useState(0);
@@ -43,8 +50,12 @@ const ScoreBoard = () => {
           createCards();
         }}
       >
-        <img src="/assets/icon-reset.svg" alt="Reset" /> Reset
+        <img src="/assets/icon-reset.svg" alt="Reset" /> <span>Reset</span>
       </button>
+
+      <p className="trophy">
+        <img src="/assets/trophy.png" alt="Trophy" /> <span>{trophy}</span>
+      </p>
 
       <p className="score">
         Score: <span>{foundations * RUN_SCORE}</span>

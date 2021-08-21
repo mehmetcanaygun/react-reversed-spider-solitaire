@@ -629,7 +629,6 @@ a {
 }
 
 .score-board {
-  width: 300px;
   height: 36px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -643,8 +642,8 @@ a {
 }
 
 .score-board .reset-btn {
-  width: 70px;
   height: 36px;
+  padding: 0 12px;
   border-radius: 4px;
   background-color: #7474a0;
   border: none;
@@ -673,7 +672,8 @@ a {
 }
 
 .score-board .score,
-.score-board .time {
+.score-board .time,
+.score-board .trophy {
   width: 100px;
   height: 36px;
   display: -webkit-box;
@@ -691,25 +691,32 @@ a {
 }
 
 .score-board .score span,
-.score-board .time span {
+.score-board .time span,
+.score-board .trophy span {
   color: #7474a0;
   margin-left: 4px;
 }
 
+.score-board .trophy img {
+  height: 60%;
+  margin-right: 10px;
+}
+
+.score-board button,
+.score-board p {
+  margin-right: 6px;
+}
+
 @media (max-width: 940px) {
-  .score-board {
-    width: 230px;
-  }
-  .score-board .reset-btn {
-    width: 60px;
-    font-size: 13px;
-  }
   .score-board .reset-btn img {
-    height: 30%;
-    margin-right: 2px;
+    margin-right: 0;
+  }
+  .score-board .reset-btn span {
+    display: none;
   }
   .score-board .score,
-  .score-board .time {
+  .score-board .time,
+  .score-board .trophy {
     width: 80px;
     font-size: 13px;
   }

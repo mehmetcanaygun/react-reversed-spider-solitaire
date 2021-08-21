@@ -12,6 +12,7 @@ describe("ScoreBoard Component", () => {
   const reset = () => console.log("Reset");
   const setTimeScore = () => console.log("Set Time Score");
   const isEnded = false;
+  const trophy = 0;
 
   it("should render ScoreBoard component", () => {
     render(
@@ -23,6 +24,7 @@ describe("ScoreBoard Component", () => {
           reset,
           setTimeScore,
           isEnded,
+          trophy,
         }}
       >
         <ScoreBoard />
@@ -47,6 +49,7 @@ describe("ScoreBoard Component", () => {
           reset,
           setTimeScore,
           isEnded: ended,
+          trophy,
         }}
       >
         <ScoreBoard />
@@ -64,6 +67,7 @@ describe("ScoreBoard Component", () => {
           reset,
           setTimeScore,
           isEnded,
+          trophy,
         }}
       >
         <ScoreBoard />

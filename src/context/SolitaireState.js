@@ -3,7 +3,6 @@ import SolitaireContext from "./solitaireContext";
 import SolitaireReducer from "./solitaireReducer";
 import {
   CREATE_CARDS,
-  SET_LOADING,
   SET_STARTED,
   CREATE_STOCK_AND_TABLEAU,
   SET_SELECTED,
@@ -39,11 +38,11 @@ const SolitaireState = (props) => {
     cards: [],
     stock: [],
     foundations: 0,
+    trophy: 0,
     tableau: {},
     selected: [],
     time: 0,
     alert: null,
-    loading: false,
     isStarted: false,
     isEnded: false,
   };
@@ -52,9 +51,6 @@ const SolitaireState = (props) => {
 
   // Create shuffled deck of cards
   const createCards = () => {
-    // Set loading
-    setLoading();
-
     // Firstly, create an array of 8 cardDeck arrays
     // Then, merge cardDeck arrays into one big array of 104 cards
     // Lastly, refactor them so that each item can have cardId attribute
@@ -69,13 +65,6 @@ const SolitaireState = (props) => {
     });
   };
 
-  // Set Loading
-  const setLoading = () => {
-    dispatch({
-      type: SET_LOADING,
-    });
-  };
-
   // Set Started
   const setStarted = (condition) => {
     dispatch({
@@ -86,9 +75,6 @@ const SolitaireState = (props) => {
 
   // Create stock and tableau from shuffled cards
   const createStockAndTableau = (cards) => {
-    // Set loading
-    setLoading();
-
     // Put the first 50 cards in stock array as chunks of 10
     // Then, refactor the array so that it can tell pile info and faceUp info
     const stock = refactorStock(
@@ -288,7 +274,7 @@ const SolitaireState = (props) => {
       value={{
         cards: state.cards,
         foundations: state.foundations,
-        loading: state.loading,
+        trophy: state.trophy,
         isStarted: state.isStarted,
         stock: state.stock,
         tableau: state.tableau,
@@ -297,7 +283,6 @@ const SolitaireState = (props) => {
         alert: state.alert,
         isEnded: state.isEnded,
         createCards,
-        setLoading,
         setStarted,
         createStockAndTableau,
         setSelected,

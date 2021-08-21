@@ -11,6 +11,7 @@ describe("Cypress - ScoreBoard Component", () => {
     const reset = () => console.log("Reset");
     const setTimeScore = () => console.log("Set Time Score");
     const isEnded = false;
+    const trophy = 0;
 
     mount(
       <SolitaireContext.Provider
@@ -21,6 +22,7 @@ describe("Cypress - ScoreBoard Component", () => {
           reset,
           setTimeScore,
           isEnded,
+          trophy,
         }}
       >
         <ScoreBoard />
@@ -30,5 +32,6 @@ describe("Cypress - ScoreBoard Component", () => {
     cy.get(".reset-btn").contains("Reset");
     cy.get(".score").contains("0");
     cy.get(".time").contains("00:00");
+    cy.get(".trophy").contains("0");
   });
 });
