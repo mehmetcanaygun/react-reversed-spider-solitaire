@@ -102,24 +102,17 @@ a {
 }
 
 .navbar {
+  width: 100%;
   height: 80px;
-}
-
-.navbar .container {
-  height: 100%;
-  margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
 }
 
-.navbar .container .logo {
+.navbar .logo {
   height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -129,7 +122,7 @@ a {
           justify-content: center;
 }
 
-.navbar .container .logo img {
+.navbar .logo img {
   max-height: 96%;
 }
 
@@ -166,6 +159,11 @@ a {
 
 .footer .logo-container img {
   width: 100%;
+}
+
+.footer .logo-container a {
+  color: #851939;
+  font-size: 14px;
 }
 
 .footer .footer-msg {
@@ -1597,6 +1595,174 @@ a {
   .home-page {
     width: 100%;
     padding: 0 2%;
+  }
+}
+
+.about-page {
+  min-height: 100vh;
+  padding: 40px calc((100% - 1300px) / 2);
+}
+
+.about-page .back-to-home-link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 140px;
+  height: 30px;
+  margin-bottom: 30px;
+  border-radius: 4px;
+  background-color: #161616;
+  font-size: 14px;
+  color: #eeeeee;
+}
+
+.about-page .back-to-home-link img {
+  height: 30%;
+  margin-right: 6px;
+  -webkit-transition: margin-right 0.3s;
+  transition: margin-right 0.3s;
+}
+
+.about-page .back-to-home-link:hover img {
+  margin-right: 10px;
+}
+
+.about-page section {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.about-page section .info h2 {
+  color: #eeeeee;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.about-page section .info .about-list,
+.about-page section .info .contact-list {
+  margin-bottom: 30px;
+}
+
+.about-page section .info .about-list li,
+.about-page section .info .contact-list li {
+  padding: 8px 8px 8px 30px;
+  position: relative;
+  margin-bottom: 12px;
+  background-color: rgba(238, 238, 238, 0.3);
+  border-radius: 4px;
+  font-size: 18px;
+  -webkit-transition: background-color 0.3s;
+  transition: background-color 0.3s;
+}
+
+.about-page section .info .about-list li a,
+.about-page section .info .contact-list li a {
+  color: #000;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.about-page section .info .about-list li::before,
+.about-page section .info .contact-list li::before {
+  content: url("../assets/list-spider.png");
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 24px;
+  height: 100%;
+  border-radius: 4px 0 0 4px;
+  background-color: #161616;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.about-page section .info .about-list li:not(:last-child)::after,
+.about-page section .info .contact-list li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 12px;
+  width: 1px;
+  height: 12px;
+  background-color: #eeeeee;
+}
+
+.about-page section .info .contact-list li:hover a {
+  color: #eeeeee;
+}
+
+.about-page section .info .contact-list li.github:hover {
+  background-color: #333;
+}
+
+.about-page section .info .contact-list li.linkedin:hover {
+  background-color: #0077b5;
+}
+
+.about-page section .info .contact-list li.instagram:hover {
+  background-color: #c13584;
+}
+
+.about-page section .info .contact-list li.email:hover {
+  background-color: #ea4335;
+}
+
+.about-page section .img {
+  height: 35vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.about-page section .img img {
+  height: 100%;
+  -webkit-filter: drop-shadow(0px 4px 12px #000);
+          filter: drop-shadow(0px 4px 12px #000);
+}
+
+@media (max-width: 1300px) {
+  .about-page {
+    padding: 40px 2%;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-page section {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+  .about-page section .info .about-list li,
+  .about-page section .info .contact-list li {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 425px) {
+  .about-page section {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+  .about-page section .img {
+    height: 70vw;
   }
 }
 /*# sourceMappingURL=App.css.map */

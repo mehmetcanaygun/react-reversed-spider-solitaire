@@ -1,10 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
     <footer className="footer">
       <div className="logo-container">
         <img src="/assets/footer-logo.png" alt="MCA's Spider Solitaire" />
+        <Link to="/about">About The Project</Link>
       </div>
       <p className="footer-msg">
         Made with <img src="/assets/icon-heart.svg" alt="Heart" /> by{" "}

@@ -1,21 +1,16 @@
 .navbar {
+  width: 100%;
   height: $navbar-height;
+  display: flex;
+  align-items: center;
 
-  .container {
+  .logo {
     height: 100%;
-    margin: 0 auto;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: center;
 
-    .logo {
-      height: 100%;
-      display: flex;
-      justify-content: center;
-
-      img {
-        max-height: 96%;
-      }
+    img {
+      max-height: 96%;
     }
   }
 }

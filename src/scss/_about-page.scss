@@ -1,0 +1,155 @@
+.about-page {
+  min-height: 100vh;
+  padding: $padding-vertical calc((100% - 1300px) / 2);
+
+  .back-to-home-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 140px;
+    height: 30px;
+    margin-bottom: 30px;
+    border-radius: 4px;
+    background-color: $color-dark;
+    font-size: 14px;
+    color: $color-light;
+
+    img {
+      height: 30%;
+      margin-right: 6px;
+      transition: margin-right 0.3s;
+    }
+  }
+
+  .back-to-home-link:hover {
+    img {
+      margin-right: 10px;
+    }
+  }
+
+  section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+
+    .info {
+      h2 {
+        color: $color-light;
+        margin-bottom: 30px;
+        position: relative;
+      }
+
+      .about-list,
+      .contact-list {
+        margin-bottom: 30px;
+
+        li {
+          padding: 8px 8px 8px 30px;
+          position: relative;
+          margin-bottom: 12px;
+          background-color: rgba($color-light, 0.3);
+          border-radius: 4px;
+          font-size: 18px;
+          transition: background-color 0.3s;
+
+          a {
+            color: #000;
+            transition: 0.3s;
+          }
+        }
+
+        li::before {
+          content: url("../assets/list-spider.png");
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 24px;
+          height: 100%;
+          border-radius: 4px 0 0 4px;
+          background-color: $color-dark;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        li:not(:last-child)::after {
+          content: "";
+          position: absolute;
+          top: 100%;
+          left: 12px;
+          width: 1px;
+          height: 12px;
+          background-color: $color-light;
+        }
+      }
+
+      .contact-list {
+        li:hover {
+          a {
+            color: $color-light;
+          }
+        }
+
+        li.github:hover {
+          background-color: $color-github;
+        }
+        li.linkedin:hover {
+          background-color: $color-linkedin;
+        }
+        li.instagram:hover {
+          background-color: $color-instagram;
+        }
+        li.email:hover {
+          background-color: $color-email;
+        }
+      }
+    }
+
+    .img {
+      height: 35vw;
+      display: flex;
+      justify-content: center;
+
+      img {
+        height: 100%;
+        filter: drop-shadow(0px 4px 12px #000);
+      }
+    }
+  }
+}
+
+// Media Queries
+@media (max-width: $lg) {
+  .about-page {
+    padding: $padding-vertical $padding-horizontal;
+  }
+}
+
+@media (max-width: $sm) {
+  .about-page {
+    section {
+      grid-template-columns: 1fr;
+
+      .info {
+        .about-list,
+        .contact-list {
+          li {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $xsm) {
+  .about-page {
+    section {
+      grid-template-columns: 1fr;
+
+      .img {
+        height: 70vw;
+      }
+    }
+  }
+}
