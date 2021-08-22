@@ -104,7 +104,7 @@
 }
 
 // Media Queries
-@media (max-width: 768px) {
+@media (max-width: $sm) {
   .alert {
     width: 280px;
     height: 80px;

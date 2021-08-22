@@ -45,7 +45,8 @@
     }
   }
 
-  .trophy {
+  .trophy,
+  .time {
     img {
       height: 60%;
       margin-right: 10px;
@@ -58,7 +59,7 @@
   }
 }
 
-@media (max-width: 940px) {
+@media (max-width: $md) {
   .score-board {
     .reset-btn {
       img {
@@ -75,6 +76,21 @@
     .trophy {
       width: 80px;
       font-size: 13px;
+    }
+  }
+}
+
+@media (max-width: $xsm) {
+  .score-board {
+    width: 100%;
+    gap: 4px;
+
+    .reset-btn,
+    .score,
+    .time,
+    .trophy {
+      flex: 1;
+      margin-right: 0;
     }
   }
 }

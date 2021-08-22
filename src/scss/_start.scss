@@ -13,7 +13,7 @@
     rgba(50, 13, 58, 1) 0%,
     rgba(69, 27, 117, 1) 50%
   );
-  z-index: 10;
+  z-index: $z-modal;
 
   .container {
     width: 800px;
@@ -147,7 +147,7 @@
 }
 
 // Media Queries
-@media (max-width: 768px) {
+@media (max-width: $sm) {
   .start {
     .container {
       width: 100%;
@@ -169,5 +169,11 @@
         font-size: 14px;
       }
     }
+  }
+}
+
+@media (max-width: $xsm) {
+  .start {
+    height: calc(100vh + 40px);
   }
 }

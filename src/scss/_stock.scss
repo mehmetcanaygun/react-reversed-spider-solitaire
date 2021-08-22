@@ -70,7 +70,7 @@
 }
 
 // Media Queries
-@media (max-width: 1300px) {
+@media (max-width: $lg) {
   .stock {
     width: 160px;
     height: $card-height-lg;
@@ -98,7 +98,7 @@
   }
 }
 
-@media (max-width: 940px) {
+@media (max-width: $md) {
   .stock {
     width: 108px;
     height: $card-height-md;
@@ -126,7 +126,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: $sm) {
   .stock {
     width: 52px;
     height: $card-height-sm;

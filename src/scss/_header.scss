@@ -10,8 +10,16 @@
 }
 
 // Media Queries
-@media (max-width: 1300px) {
+@media (max-width: $lg) {
   .header {
     padding: 0 $padding-horizontal;
+  }
+}
+
+@media (max-width: $xsm) {
+  .header {
+    height: $navbar-height-xsm;
+    flex-direction: column;
+    justify-content: center;
   }
 }

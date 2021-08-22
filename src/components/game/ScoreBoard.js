@@ -62,7 +62,8 @@ const ScoreBoard = () => {
       </p>
 
       <p className="time">
-        Time: <span>{formatTime(time)}</span>
+        <img src="/assets/time.png" alt="Time" />{" "}
+        <span>{formatTime(time)}</span>
       </p>
     </div>
   );

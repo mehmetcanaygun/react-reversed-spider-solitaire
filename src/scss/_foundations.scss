@@ -78,7 +78,7 @@
 }
 
 // Media Queries
-@media (max-width: 1300px) {
+@media (max-width: $lg) {
   .foundations {
     height: $card-height-lg;
     gap: 4px;
@@ -90,7 +90,7 @@
   }
 }
 
-@media (max-width: 940px) {
+@media (max-width: $md) {
   .foundations {
     height: $card-height-md;
     gap: 4px;
@@ -102,7 +102,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: $sm) {
   .foundations {
     height: $card-height-sm;
     gap: 2px;

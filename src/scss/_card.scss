@@ -139,7 +139,7 @@
 }
 
 // Media Queries
-@media (max-width: 1300px) {
+@media (max-width: $lg) {
   .card {
     width: $card-width-lg;
     height: $card-height-lg;
@@ -151,7 +151,7 @@
   }
 }
 
-@media (max-width: 940px) {
+@media (max-width: $md) {
   .card {
     width: $card-width-md;
     height: $card-height-md;
@@ -159,12 +159,12 @@
   }
 
   .card-front,
-    .card-back {
-      box-shadow: $card-shadow-md;
-    }
+  .card-back {
+    box-shadow: $card-shadow-md;
+  }
 }
 
-@media (max-width: 768px) {
+@media (max-width: $sm) {
   .card {
     width: $card-width-sm;
     height: $card-height-sm;
@@ -172,7 +172,6 @@
     .card-front,
     .card-back {
       box-shadow: $card-shadow-sm;
-      
     }
 
     .card-front {

@@ -14,10 +14,12 @@ const End = () => {
 
       <p className="end-msg">Congratulations</p>
 
-      <p className="end-score">You've got 1000 points in {formatTime(time)}</p>
+      <p className="end-score">
+        You've got <span>1000</span> points in <span>{formatTime(time)}</span>
+      </p>
 
       <button className="again-btn" onClick={reset}>
-        Again
+        Play Again
       </button>
     </div>
   );

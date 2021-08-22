@@ -21,7 +21,7 @@
 }
 
 // Media Queries
-@media (max-width: 1300px) {
+@media (max-width: $lg) {
   .navbar {
     .container {
       width: 100%;
@@ -30,7 +30,7 @@
   }
 }
 
-@media (max-width: 940px) {
+@media (max-width: $md) {
   .navbar {
     height: $navbar-height-md;
   }

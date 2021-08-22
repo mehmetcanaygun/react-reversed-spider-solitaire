@@ -12,7 +12,7 @@
 }
 
 // Media Queries
-@media (max-width: 1300px) {
+@media (max-width: $lg) {
   .board {
     gap: 30px;
   }
@@ -22,13 +22,13 @@
   }
 }
 
-@media (max-width: 940px) {
+@media (max-width: $md) {
   .board-top {
     height: $card-height-md;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: $sm) {
   .board-top {
     height: $card-height-sm;
   }

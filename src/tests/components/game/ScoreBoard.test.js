@@ -33,7 +33,7 @@ describe("ScoreBoard Component", () => {
 
     expect(screen.getByAltText("Reset")).toBeInTheDocument();
     expect(screen.getByText(/Score/)).toBeInTheDocument();
-    expect(screen.getByText(/Time/)).toBeInTheDocument();
+    expect(screen.getByAltText("Time")).toBeInTheDocument();
   });
 
   it("should call setTimeScore if isEnded is true", () => {

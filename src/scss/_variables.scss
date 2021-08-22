@@ -1,3 +1,4 @@
+// Colors
 $color-primary: #451b75;
 $color-primary-dark: #320d3a;
 $color-secondary: #7474a0;
@@ -8,17 +9,23 @@ $color-dark: #161616;
 $color-light: #eeeeee;
 $color-gray: #c5c5c5;
 
+// Fonts
 $font-title: "Creepster", cursive;
 $font-text: "Georama", sans-serif;
 
+// Sizes
 $navbar-height: 80px;
+$container-width: 1300px;
 
+// Padding
 $padding-horizontal: 2%;
 $padding-vertical: 40px;
 $padding-mobile: 16px;
 
-$container-width: 1300px;
+// Z-Index
+$z-modal: 10;
 
+// Card
 $card-width: 100px;
 $card-height: 148px;
 $card-shadow: 0px 0px 6px rgba(#000, 0.6);
@@ -26,6 +33,10 @@ $card-hover-shadow: 0px 0px 4px 4px rgba($color-tertiary, 0.8);
 $card-radius: 6px;
 
 // Sizes for smaller screens
+$lg: 1300px;
+$md: 940px;
+$sm: 768px;
+$xsm: 425px;
 
 // LG - For max-width: 1300px
 $card-width-lg: 86px;
@@ -43,3 +54,6 @@ $card-shadow-md: 0px 0px 2px rgba(#000, 0.2);
 $card-width-sm: 36px;
 $card-height-sm: 53px;
 $card-shadow-sm: none;
+
+// XSM - For max-width: 425px
+$navbar-height-xsm: 120px;
