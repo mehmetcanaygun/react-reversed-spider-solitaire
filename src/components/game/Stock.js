@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import SolitaireContext from "../../context/solitaireContext";
-import { isPileEmpty } from "../../utils/helpers";
+import { isPileEmpty, playSound } from "../../utils/helpers";
+import addCardSound from "../../assets/add-card.wav";
 import PropTypes from "prop-types";
 
 const Stock = ({ stock }) => {
@@ -13,6 +14,7 @@ const Stock = ({ stock }) => {
       // Check if there's an empty pile
       if (!isPileEmpty(tableau)) {
         addCards(stock[stock.length - 1]);
+        playSound(addCardSound);
       } else {
         setAlert(
           "warning",

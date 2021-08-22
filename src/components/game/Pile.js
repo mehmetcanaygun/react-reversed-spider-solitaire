@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
 import SolitaireContext from "../../context/solitaireContext";
 import Card from "./Card";
-import { isLinedUp } from "../../utils/helpers";
+import { isLinedUp, playSound } from "../../utils/helpers";
 import { CARD_TOP } from "../../utils/gameFeatures";
 import PropTypes from "prop-types";
+import cardPickSound from "../../assets/card-pick.wav";
 
 const Pile = ({ pile = [], pileIndex }) => {
   const solitaireContext = useContext(SolitaireContext);
@@ -37,6 +38,7 @@ const Pile = ({ pile = [], pileIndex }) => {
   const moveToEmptyPile = (index) => {
     if (selected.length === 1) {
       moveCards(selected[0], { pileId: index });
+      playSound(cardPickSound);
     }
   };
 

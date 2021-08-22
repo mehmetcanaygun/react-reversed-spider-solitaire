@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import SolitaireContext from "../../context/solitaireContext";
-import { formatCardText } from "../../utils/helpers";
+import { formatCardText, playSound } from "../../utils/helpers";
+import cardPickSound from "../../assets/card-pick.wav";
 import PropTypes from "prop-types";
 
 const Card = ({ card, cardIndex, pickCards, style }) => {
@@ -35,6 +36,7 @@ const Card = ({ card, cardIndex, pickCards, style }) => {
       onClick={() => {
         if (card.faceUp) {
           pickCards(card, cardIndex);
+          playSound(cardPickSound);
         } else {
           setAlert("warning", "You cannot pick faced down cards");
         }

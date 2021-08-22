@@ -133,3 +133,10 @@ export const isPileEmpty = (arr) => {
 
   return returnValue;
 };
+
+// Play Sound
+export const playSound = (src) => {
+  const audio = new Audio(src);
+
+  audio.play();
+};

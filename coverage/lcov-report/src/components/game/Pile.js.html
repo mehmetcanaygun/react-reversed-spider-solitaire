@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">87.5% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>22/22</span>
+                <span class='fraction'>28/32</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">82.35% </span>
+                <span class="strong">66.67% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>14/17</span>
+                <span class='fraction'>18/27</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>5/5</span>
+                <span class='fraction'>6/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">87.1% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>21/21</span>
+                <span class='fraction'>27/31</span>
             </div>
         
             
@@ -130,7 +130,30 @@
 <a name='L71'></a><a href='#L71'>71</a>
 <a name='L72'></a><a href='#L72'>72</a>
 <a name='L73'></a><a href='#L73'>73</a>
-<a name='L74'></a><a href='#L74'>74</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L74'></a><a href='#L74'>74</a>
+<a name='L75'></a><a href='#L75'>75</a>
+<a name='L76'></a><a href='#L76'>76</a>
+<a name='L77'></a><a href='#L77'>77</a>
+<a name='L78'></a><a href='#L78'>78</a>
+<a name='L79'></a><a href='#L79'>79</a>
+<a name='L80'></a><a href='#L80'>80</a>
+<a name='L81'></a><a href='#L81'>81</a>
+<a name='L82'></a><a href='#L82'>82</a>
+<a name='L83'></a><a href='#L83'>83</a>
+<a name='L84'></a><a href='#L84'>84</a>
+<a name='L85'></a><a href='#L85'>85</a>
+<a name='L86'></a><a href='#L86'>86</a>
+<a name='L87'></a><a href='#L87'>87</a>
+<a name='L88'></a><a href='#L88'>88</a>
+<a name='L89'></a><a href='#L89'>89</a>
+<a name='L90'></a><a href='#L90'>90</a>
+<a name='L91'></a><a href='#L91'>91</a>
+<a name='L92'></a><a href='#L92'>92</a>
+<a name='L93'></a><a href='#L93'>93</a>
+<a name='L94'></a><a href='#L94'>94</a>
+<a name='L95'></a><a href='#L95'>95</a>
+<a name='L96'></a><a href='#L96'>96</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -169,11 +192,32 @@
 <span class="cline-any cline-yes">26x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">26x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">25x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">25x</span>
+<span class="cline-any cline-yes">25x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">25x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">26x</span>
 <span class="cline-any cline-yes">25x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -206,9 +250,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { useContext } from "react";
 import SolitaireContext from "../../context/solitaireContext";
 import Card from "./Card";
-import { isLinedUp } from "../../utils/helpers";
+import { isLinedUp, playSound } from "../../utils/helpers";
 import { CARD_TOP } from "../../utils/gameFeatures";
 import PropTypes from "prop-types";
+import cardPickSound from "../../assets/card-pick.wav";
 &nbsp;
 const Pile = ({ pile = [], pileIndex }) =&gt; {
   const solitaireContext = useContext(SolitaireContext);
@@ -242,7 +287,27 @@ const Pile = ({ pile = [], pileIndex }) =&gt; {
   const moveToEmptyPile = (index) =&gt; {
     <span class="missing-if-branch" title="else path not taken" >E</span>if (selected.length === 1) {
       moveCards(selected[0], { pileId: index });
+      playSound(cardPickSound);
     }
+  };
+&nbsp;
+  // Set Pile Height - Since pile height depends on pile length, make sure to set it right in accordance with the browser width
+  const setPileHeight = () =&gt; {
+    let cardHeight;
+&nbsp;
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (window.innerWidth &gt; 1300) {
+<span class="cstat-no" title="statement not covered" >      cardHeight = 148;</span>
+    } else <span class="missing-if-branch" title="else path not taken" >E</span>if (window.innerWidth &lt; 1300 &amp;&amp; window.innerWidth &gt;= 940) {
+      cardHeight = 127;
+    } else <span class="cstat-no" title="statement not covered" >if (window.innerWidth &lt; 940 &amp;&amp; window.innerWidth &gt;= 768) {</span>
+<span class="cstat-no" title="statement not covered" >      cardHeight = 101;</span>
+    } else {
+<span class="cstat-no" title="statement not covered" >      cardHeight = 53;</span>
+    }
+&nbsp;
+    return {
+      height: `${(pile.length - 1) * CARD_TOP + cardHeight}px`,
+    };
   };
 &nbsp;
   if (pile) {
@@ -250,6 +315,7 @@ const Pile = ({ pile = [], pileIndex }) =&gt; {
       &lt;div
         data-testid="pile"
         className="pile"
+        style={setPileHeight()}
         onClick={() =&gt; {
           if (pile.length === 0) moveToEmptyPile(pileIndex);
         }}
@@ -283,7 +349,7 @@ export default Pile;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Sat Aug 21 2021 13:22:46 GMT+0300 (GMT+03:00)
+                at Sun Aug 22 2021 20:41:21 GMT+0300 (GMT+03:00)
             </div>
         </div>
         <script src="../../../prettify.js"></script>

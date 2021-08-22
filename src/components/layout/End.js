@@ -1,10 +1,17 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import SolitaireContext from "../../context/solitaireContext";
-import { formatTime } from "../../utils/helpers";
+import { formatTime, playSound } from "../../utils/helpers";
+import endSound from "../../assets/end.wav";
 
 const End = () => {
   const solitaireContext = useContext(SolitaireContext);
   const { reset, time } = solitaireContext;
+
+  useEffect(() => {
+    playSound(endSound);
+
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <div className="end">

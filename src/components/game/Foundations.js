@@ -1,5 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import SolitaireContext from "../../context/solitaireContext";
+import { playSound } from "../../utils/helpers";
+import runSound from "../../assets/run.wav";
 
 const Foundations = () => {
   const solitaireContext = useContext(SolitaireContext);
@@ -37,6 +39,10 @@ const Foundations = () => {
 
   useEffect(() => {
     if (foundations === 8) setEnded();
+
+    if (foundations !== 0) {
+      playSound(runSound);
+    }
 
     // eslint-disable-next-line
   }, [foundations]);
