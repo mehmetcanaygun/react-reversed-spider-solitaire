@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import SolitaireContext from "../../context/solitaireContext";
 import { playSound } from "../../utils/helpers";
-import runSound from "../../assets/run.wav";
+import runSound from "../../assets/run.mp3";
 
 const Foundations = () => {
   const solitaireContext = useContext(SolitaireContext);

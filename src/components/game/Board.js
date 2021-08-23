@@ -5,7 +5,7 @@ import Tableau from "./Tableau";
 import Foundations from "./Foundations";
 import End from "../layout/End";
 import Alert from "../layout/Alert";
-import startSound from "../../assets/start.wav";
+import startSound from "../../assets/start.mp3";
 import { playSound } from "../../utils/helpers";
 
 const Board = () => {

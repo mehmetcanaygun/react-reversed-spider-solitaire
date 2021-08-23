@@ -4,7 +4,7 @@ import Card from "./Card";
 import { isLinedUp, playSound } from "../../utils/helpers";
 import { CARD_TOP } from "../../utils/gameFeatures";
 import PropTypes from "prop-types";
-import cardPickSound from "../../assets/card-pick.wav";
+import cardPickSound from "../../assets/card-pick.mp3";
 
 const Pile = ({ pile = [], pileIndex }) => {
   const solitaireContext = useContext(SolitaireContext);

@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import SolitaireContext from "../../context/solitaireContext";
 import { isPileEmpty, playSound } from "../../utils/helpers";
-import addCardSound from "../../assets/add-card.wav";
+import addCardSound from "../../assets/add-card.mp3";
 import PropTypes from "prop-types";
 
 const Stock = ({ stock }) => {
