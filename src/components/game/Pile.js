@@ -8,7 +8,8 @@ import cardPickSound from "../../assets/card-pick.mp3";
 
 const Pile = ({ pile = [], pileIndex }) => {
   const solitaireContext = useContext(SolitaireContext);
-  const { selected, setSelected, clearSelected, moveCards } = solitaireContext;
+  const { selected, setSelected, clearSelected, moveCards, setAlert } =
+    solitaireContext;
 
   // Pick Cards - Handle picking cards to move on the tableau
   const pickCards = (card, cardIndex) => {
@@ -21,6 +22,8 @@ const Pile = ({ pile = [], pileIndex }) => {
       // Use helper function to make sure all cards are lined up correctly
       if (isLinedUp(toBePickedCards)) {
         setSelected(toBePickedCards);
+      } else {
+        setAlert("warning", "Cards are not lined up");
       }
     } else if (selected.length === 1 && cardIndex === pile.length - 1) {
       // Make sure the second selection is suitable to have first selection under it
