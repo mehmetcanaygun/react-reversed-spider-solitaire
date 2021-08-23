@@ -24,6 +24,7 @@ const Start = () => {
               🕷️ To move the cards, firstly click on a card or cards, then click
               on the destination card
             </li>
+            <li>🕷️ Click on the bottom card of any pile to unselect cards</li>
             <li>🕷️ Sort the cards from "Ace" to "King"</li>
             <li>🕷️ You cannot click on the faced down cards</li>
             <li>

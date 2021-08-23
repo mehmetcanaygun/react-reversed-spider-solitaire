@@ -93,7 +93,7 @@ export const formatCardText = (card) => {
 // Is Lined Up - Check if the given array items increases by one
 export const isLinedUp = (arr) => {
   let val = +arr[0].cardText;
-  let returnValue = true;
+  let returnValue;
 
   arr.forEach((card) => {
     returnValue = +card.cardText !== val ? false : true;
